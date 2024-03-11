@@ -1,0 +1,46 @@
+@import "src/common/styles/index";
+
+.inputContainer {
+  width: 100%;
+  height: 56px;
+  padding: .75rem 1.25rem;
+
+  border-radius: 10px;
+  border: 1px solid $border_color;
+
+  @include md {
+    border-color: $background_color;
+  }
+
+  .inputContent {
+    @include flexColumnCenterLeft;
+    width: 100%;
+
+    .contentTitle {
+      @include p(.75em, $text_color_light);
+
+      @include md {
+        color: $background_color;
+      }
+    }
+
+    .contentField {
+      width: 100%;
+
+      @include p(.938em);
+
+      @include md {
+        color: $background_color;
+      }
+
+      &::placeholder {
+        opacity: .5;
+
+        @include md {
+          color: $background_color;
+          opacity: .75;
+        }
+      }
+    }
+  }
+}

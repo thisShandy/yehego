@@ -1,3 +1,5 @@
+@import "src/common/styles/index";
+
 .authWrapper {
   display: flex;
 
@@ -5,4 +7,8 @@
   min-height: 100vh;
 
   background-color: rgba(106, 106, 106, .75);
+
+  @include md {
+    background-color: transparent;
+  }
 }

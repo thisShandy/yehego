@@ -9,6 +9,10 @@
   animation: fade_in ease-in-out .15s;
   animation-delay: .4s;
   animation-fill-mode: backwards;
+
+  @include md {
+    color: $background_color;
+  }
 }
 
 .loginContent {
@@ -40,6 +44,10 @@
         .forgotTitle {
           @include p(.875em, $text_color_light);
           text-decoration: underline;
+
+          @include md {
+            color: $background_color;
+          }
         }
       }
     }
@@ -51,6 +59,10 @@
     animation: fade_in ease-in-out .15s;
     animation-delay: .5s;
     animation-fill-mode: backwards;
+
+    @include md {
+      color: $background_color;
+    }
   }
 
   .contentSso {
@@ -70,6 +82,10 @@
   gap: 24px;
 
   width: 100%;
+
+  @include md {
+    display: none;
+  }
 
   .welcomeIcon {
     @include flexRowCenter;
@@ -93,8 +109,11 @@
     @include flexColumnCenter;
     gap: 8px;
 
+    padding: 0 .5rem;
+
     .infoTitle {
       @include h2;
+      text-align: center;
       color: $background_color;
 
       animation: fade_in ease-in-out .15s;
@@ -104,6 +123,7 @@
 
     .infoDescription {
       @include p(1.25em);
+      text-align: center;
       color: $background_color;
 
       animation: fade_in ease-in-out .15s;

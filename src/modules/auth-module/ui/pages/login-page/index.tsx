@@ -2,8 +2,8 @@ import MainLayout from "~/common/ui/layouts/main-layout";
 import AuthLayout from "~/modules/auth-module/ui/layouts/auth-layout";
 import SideLayout from "~/modules/auth-module/ui/layouts/side-layout";
 
-import InputUi from "~/common/ui/kit/input-ui";
 import ButtonUi from "~/common/ui/kit/button-ui";
+import AuthInput from "~/modules/auth-module/ui/components/auth-input";
 import SsoButton from "~/modules/auth-module/ui/components/sso-button";
 
 import light from "./styles/light.module.scss";
@@ -18,14 +18,14 @@ const LoginPage = () => {
           <span className={light.loginTitle}>Login</span>
           <div className={light.loginContent}>
             <div className={light.contentFields}>
-              <InputUi
+              <AuthInput
                 type="email"
                 name="Email"
                 placeholder="user@email.com"
                 value=""
                 handleChange={(e) => console.log(e.target.value)}
               />
-              <InputUi
+              <AuthInput
                 type="password"
                 name="Password"
                 placeholder="••••••••••"

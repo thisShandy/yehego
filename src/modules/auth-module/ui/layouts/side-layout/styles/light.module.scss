@@ -14,6 +14,15 @@
   transform-origin: center left;
   animation: slide_in ease-in-out .35s;
   animation-fill-mode: backwards;
+
+  @include md {
+    padding: 0 1.5rem;
+
+    border-radius: 0;
+    background-color: rgba(29, 29, 31, 0.4);
+    backdrop-filter: blur(1rem);
+    max-width: 100%;
+  }
 }
 
 @keyframes slide_in {

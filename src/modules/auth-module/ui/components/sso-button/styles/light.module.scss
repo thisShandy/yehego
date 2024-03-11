@@ -13,6 +13,10 @@
   cursor: pointer;
   @include defaultTransition;
 
+  @include md {
+    border-color: $background_color;
+  }
+
   &:hover {
     background-color: rgba(205, 205, 205, .5);
   }
@@ -25,5 +29,9 @@
   .ssoTitle {
     @include h3;
     font-size: .875em;
+
+    @include md {
+      color: $background_color;
+    }
   }
 }
