@@ -5,32 +5,21 @@ const HeaderSection = () => {
   return (
     <div className={light.headerWrapper}>
       <div className={`container ${light.headerContainer}`}>
-        <button
-          type="button"
-          className={light.headerLogo}
-        >
+        <button type="button" className={light.headerLogo}>
           <div className={light.logoIcon}>
-            <span className={light.iconTitle}>
-              Y
-            </span>
+            <span className={light.iconTitle}>Y</span>
           </div>
           <span className={light.logoTitle}>Yehego</span>
         </button>
         <div className={light.headerMain}>
           <button type="button" className={light.mainNavigation}>
-            <span className={light.navigationTitle}>
-              Search
-            </span>
+            <span className={light.navigationTitle}>Search</span>
           </button>
           <button type="button" className={light.mainNavigation}>
-            <span className={light.navigationTitle}>
-              Booked
-            </span>
+            <span className={light.navigationTitle}>Booked</span>
           </button>
           <button type="button" className={light.mainNavigation}>
-            <span className={light.navigationTitle}>
-              Cart
-            </span>
+            <span className={light.navigationTitle}>Cart</span>
           </button>
         </div>
         <div className={light.headerInfo}>
@@ -38,7 +27,7 @@ const HeaderSection = () => {
             <span className={light.supportMark}>?</span>
           </button>
           <button type="button" className={light.infoMenu}>
-            <img className={light.menuIcon} src={burger} alt="burger"/>
+            <img className={light.menuIcon} src={burger} alt="burger" />
           </button>
         </div>
       </div>

@@ -56,6 +56,7 @@ module.exports = {
     "consistent-return": "off",
     "jsx-a11y/alt-text": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    "react/react-in-jsx-scope": "off"
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/ban-ts-comment": "off"
   },
 }

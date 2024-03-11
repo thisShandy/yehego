@@ -5,8 +5,8 @@ import LoginPage from "~/modules/login-module/ui/pages/login-page";
 const loginModule: RouteObject[] = [
   {
     path: "/login",
-    element: <LoginPage />,
-  },
+    element: <LoginPage />
+  }
 ];
 
 export default loginModule;

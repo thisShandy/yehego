@@ -9,16 +9,10 @@ interface IMainLayout {
   header?: boolean;
 }
 
-const MainLayout: FC<PropsWithChildren<IMainLayout>> = ({
-  children, background = false, header = true
-}) => {
+const MainLayout: FC<PropsWithChildren<IMainLayout>> = ({ children, background = false, header = true }) => {
   return (
-    <div
-      className={`${light.mainWrapper} ${background && light.mainBackground}`}
-    >
-      {header && (
-        <HeaderSection />
-      )}
+    <div className={`${light.mainWrapper} ${background && light.mainBackground}`}>
+      {header && <HeaderSection />}
       {children}
     </div>
   );
