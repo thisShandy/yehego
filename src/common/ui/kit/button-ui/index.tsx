@@ -7,20 +7,10 @@ interface IButtonUi {
   onClick: () => void;
 }
 
-const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({
-  children, label, onClick
-}) => {
+const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({ children, label, onClick }) => {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={light.buttonContainer}
-    >
-      {label && (
-        <span className={light.buttonTitle}>
-          {label}
-        </span>
-      )}
+    <button type="button" onClick={onClick} className={light.buttonContainer}>
+      {label && <span className={light.buttonTitle}>{label}</span>}
       {children}
     </button>
   );

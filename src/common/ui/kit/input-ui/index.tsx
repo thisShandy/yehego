@@ -13,14 +13,18 @@ interface IInputUi extends ITest {
 }
 
 const InputUi: FC<PropsWithChildren<IInputUi>> = ({
-  children, testId = "", type, name, placeholder, value, handleChange
+  children,
+  testId = "",
+  type,
+  name,
+  placeholder,
+  value,
+  handleChange
 }) => {
   return (
     <div className={light.inputContainer}>
       <div className={light.inputContent}>
-        <span className={light.contentTitle}>
-          {name}
-        </span>
+        <span className={light.contentTitle}>{name}</span>
         <input
           data-testid={testId}
           type={type}

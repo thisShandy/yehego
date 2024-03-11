@@ -8,19 +8,11 @@ interface ISsoButton {
   onClick: () => void;
 }
 
-const SsoButton: FC<PropsWithChildren<ISsoButton>> = ({
-  icon, label, onClick
-}) => {
+const SsoButton: FC<PropsWithChildren<ISsoButton>> = ({ icon, label, onClick }) => {
   return (
-    <button
-      type="button"
-      className={light.ssoContainer}
-      onClick={onClick}
-    >
+    <button type="button" className={light.ssoContainer} onClick={onClick}>
       <img className={light.ssoIcon} src={icon} alt="image" />
-      <span className={light.ssoTitle}>
-        {label}
-      </span>
+      <span className={light.ssoTitle}>{label}</span>
     </button>
   );
 };

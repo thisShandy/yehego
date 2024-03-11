@@ -34,28 +34,15 @@ const LoginPage = () => {
               />
               <div className={light.fieldsConfirm}>
                 <ButtonUi label="Login" onClick={() => console.log("")} />
-                <button
-                  type="button"
-                  className={light.confirmForgot}
-                >
-                  <span className={light.forgotTitle}>
-                    Forgot your password?
-                  </span>
+                <button type="button" className={light.confirmForgot}>
+                  <span className={light.forgotTitle}>Forgot your password?</span>
                 </button>
               </div>
             </div>
             <span className={light.contentDivider}>Or</span>
             <div className={light.contentSso}>
-              <SsoButton
-                icon={google}
-                label="Continue with Google"
-                onClick={() => console.log("")}
-              />
-              <SsoButton
-                icon={microsoft}
-                label="Continue with Microsoft"
-                onClick={() => console.log("")}
-              />
+              <SsoButton icon={google} label="Continue with Google" onClick={() => console.log("")} />
+              <SsoButton icon={microsoft} label="Continue with Microsoft" onClick={() => console.log("")} />
             </div>
           </div>
         </SideLayout>
