@@ -1,0 +1,29 @@
+@import "src/common/styles/index";
+
+.ssoContainer {
+  @include flexRowCenter;
+  gap: 8px;
+
+  width: 100%;
+  height: 56px;
+
+  border-radius: 8px;
+  border: 1px solid $border_color;
+
+  cursor: pointer;
+  @include defaultTransition;
+
+  &:hover {
+    background-color: rgba(205, 205, 205, .5);
+  }
+
+  .ssoIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ssoTitle {
+    @include h3;
+    font-size: .875em;
+  }
+}

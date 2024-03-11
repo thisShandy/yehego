@@ -1,0 +1,27 @@
+@import "src/common/styles/index";
+
+.sideContainer {
+  @include flexColumnCenter;
+
+  width: 100%;
+  max-width: 576px;
+  min-height: 100vh;
+
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
+  background-color: $background_color;
+
+  transform-origin: center left;
+  animation: slide_in ease-in-out .35s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes slide_in {
+  0% {
+    transform: scaleX(0);
+  }
+
+  100% {
+    transform: scaleX(1);
+  }
+}

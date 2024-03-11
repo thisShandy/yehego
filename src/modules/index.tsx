@@ -1,9 +1,9 @@
 import homeModule from "~/modules/home-module";
-import loginModule from "~/modules/login-module";
+import authModule from "~/modules/auth-module";
 
 const modules = {
   homeModule,
-  loginModule
+  authModule
 };
 
 export default modules;

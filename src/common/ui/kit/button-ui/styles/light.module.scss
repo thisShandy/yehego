@@ -1,0 +1,23 @@
+@import "src/common/styles/index";
+
+.buttonContainer {
+  @include flexRowCenter;
+
+  width: 100%;
+  height: 56px;
+
+  border-radius: 8px;
+  border: 1px solid $main_color;
+  background-color: $main_color;
+
+  cursor: pointer;
+  @include defaultTransition;
+
+  &:hover {
+    background-color: transparent;
+  }
+
+  .buttonTitle {
+    @include p(1.25em);
+  }
+}

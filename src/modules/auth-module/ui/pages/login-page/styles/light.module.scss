@@ -1,0 +1,124 @@
+@import "src/common/styles/index";
+
+.loginTitle {
+  @include h3;
+  line-height: 120%;
+
+  margin-bottom: 48px;
+
+  animation: fade_in ease-in-out .15s;
+  animation-delay: .4s;
+  animation-fill-mode: backwards;
+}
+
+.loginContent {
+  @include flexColumnCenter;
+  gap: 32px;
+
+  width: 100%;
+  max-width: 375px;
+
+  .contentFields {
+    @include flexColumnCenter;
+    gap: 16px;
+
+    width: 100%;
+
+    animation: fade_in ease-in-out .15s;
+    animation-delay: .45s;
+    animation-fill-mode: backwards;
+
+    .fieldsConfirm {
+      @include flexColumnCenter;
+      gap: 8px;
+
+      width: 100%;
+
+      .confirmForgot {
+        cursor: pointer;
+
+        .forgotTitle {
+          @include p(.875em, $text_color_light);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  .contentDivider {
+    @include p(1.2em);
+
+    animation: fade_in ease-in-out .15s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+  }
+
+  .contentSso {
+    @include flexColumnCenter;
+    gap: 16px;
+
+    width: 100%;
+
+    animation: fade_in ease-in-out .15s;
+    animation-delay: .55s;
+    animation-fill-mode: backwards;
+  }
+}
+
+.welcomeContainer {
+  @include flexColumnCenter;
+  gap: 24px;
+
+  width: 100%;
+
+  .welcomeIcon {
+    @include flexRowCenter;
+
+    width: 64px;
+    height: 64px;
+
+    border-radius: 6px;
+    background-color: $main_color;
+
+    animation: fade_in ease-in-out .15s;
+    animation-delay: .6s;
+    animation-fill-mode: backwards;
+
+    .iconTitle {
+      @include p(2.5em);
+    }
+  }
+
+  .welcomeInfo {
+    @include flexColumnCenter;
+    gap: 8px;
+
+    .infoTitle {
+      @include h2;
+      color: $background_color;
+
+      animation: fade_in ease-in-out .15s;
+      animation-delay: .65s;
+      animation-fill-mode: backwards;
+    }
+
+    .infoDescription {
+      @include p(1.25em);
+      color: $background_color;
+
+      animation: fade_in ease-in-out .15s;
+      animation-delay: .7s;
+      animation-fill-mode: backwards;
+    }
+  }
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
