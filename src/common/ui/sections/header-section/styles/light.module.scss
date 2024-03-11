@@ -38,13 +38,17 @@
 
       .logoTitle {
         @include h5;
+
+        @include md {
+          display: none;
+        }
       }
     }
 
     .headerMain {
       flex: 3;
       @include flexRowCenter;
-      gap: clamp(16px, 100%, 48px);
+      gap: clamp(16px, 100%, 24px);
 
       .mainNavigation {
         width: 108px;
@@ -81,6 +85,10 @@
 
         cursor: pointer;
 
+        @include md {
+          display: none;
+        }
+
         .supportMark {
           @include h5;
           font-size: 1em;
@@ -95,12 +103,13 @@
 
         border-radius: 6px;
         border: 1px solid $main_color;
+        background-color: $main_color;
 
         cursor: pointer;
         @include defaultTransition;
 
         &:hover {
-          background-color: $main_color;
+          background-color: transparent;
         }
 
         .menuIcon {

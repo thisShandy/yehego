@@ -6,9 +6,8 @@
 
   margin-bottom: 48px;
 
-  animation: fade_in ease-in-out .15s;
+  @include fadeIn;
   animation-delay: .4s;
-  animation-fill-mode: backwards;
 
   @include md {
     color: $background_color;
@@ -28,9 +27,8 @@
 
     width: 100%;
 
-    animation: fade_in ease-in-out .15s;
+    @include fadeIn;
     animation-delay: .45s;
-    animation-fill-mode: backwards;
 
     .fieldsConfirm {
       @include flexColumnCenter;
@@ -56,9 +54,8 @@
   .contentDivider {
     @include p(1.2em);
 
-    animation: fade_in ease-in-out .15s;
+    @include fadeIn;
     animation-delay: .5s;
-    animation-fill-mode: backwards;
 
     @include md {
       color: $background_color;
@@ -71,9 +68,8 @@
 
     width: 100%;
 
-    animation: fade_in ease-in-out .15s;
+    @include fadeIn;
     animation-delay: .55s;
-    animation-fill-mode: backwards;
   }
 }
 
@@ -96,9 +92,8 @@
     border-radius: 6px;
     background-color: $main_color;
 
-    animation: fade_in ease-in-out .15s;
+    @include fadeIn;
     animation-delay: .6s;
-    animation-fill-mode: backwards;
 
     .iconTitle {
       @include p(2.5em);
@@ -116,9 +111,8 @@
       text-align: center;
       color: $background_color;
 
-      animation: fade_in ease-in-out .15s;
+      @include fadeIn;
       animation-delay: .65s;
-      animation-fill-mode: backwards;
     }
 
     .infoDescription {
@@ -126,19 +120,8 @@
       text-align: center;
       color: $background_color;
 
-      animation: fade_in ease-in-out .15s;
+      @include fadeIn;
       animation-delay: .7s;
-      animation-fill-mode: backwards;
     }
-  }
-}
-
-@keyframes fade_in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 100%;
   }
 }

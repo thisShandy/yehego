@@ -37,8 +37,4 @@ body {
   @include md {
     padding: 0 .5rem;
   }
-
-  @include sm {
-    padding: 0 .3rem;
-  }
 }

@@ -1,3 +1,18 @@
 @mixin defaultTransition {
   transition: all ease-in-out .15s;
 }
+
+@mixin fadeIn {
+  animation: fade_in ease-in-out .15s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
