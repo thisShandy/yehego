@@ -1,4 +1,5 @@
 import MainLayout from "~/common/ui/layouts/main-layout";
+import { authGuard } from "~/common/lib/helpers/guards/authGuard.tsx";
 
 const HomePage = () => {
   return (
@@ -8,4 +9,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default authGuard(HomePage);

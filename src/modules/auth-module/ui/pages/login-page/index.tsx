@@ -1,3 +1,5 @@
+import { useLogin } from "~/modules/auth-module/model/hooks/useLogin.ts";
+
 import MainLayout from "~/common/ui/layouts/main-layout";
 import AuthLayout from "~/modules/auth-module/ui/layouts/auth-layout";
 import SideLayout from "~/modules/auth-module/ui/layouts/side-layout";
@@ -11,6 +13,14 @@ import google from "~icons/sso/google.svg";
 import microsoft from "~icons/sso/microsoft.svg";
 
 const LoginPage = () => {
+  const {
+    form,
+    handleUpdate,
+    handleLogin,
+    loading,
+    error,
+  } = useLogin();
+
   return (
     <MainLayout background header={false}>
       <AuthLayout>
@@ -22,18 +32,30 @@ const LoginPage = () => {
                 type="email"
                 name="Email"
                 placeholder="user@email.com"
-                value=""
-                handleChange={(e) => console.log(e.target.value)}
+                error={error}
+                value={form.email}
+                handleChange={(e) => handleUpdate("email", e)}
               />
               <AuthInput
                 type="password"
                 name="Password"
                 placeholder="••••••••••"
-                value=""
-                handleChange={(e) => console.log(e.target.value)}
+                error={error}
+                value={form.password}
+                handleChange={(e) => handleUpdate("password", e)}
               />
               <div className={light.fieldsConfirm}>
-                <ButtonUi label="Login" onClick={() => console.log("")} />
+                {error && (
+                  <span className={light.conformError}>
+                    Incorrect login or password
+                  </span>
+                )}
+                <ButtonUi
+                  loading={loading}
+                  disabled={form.email === "" || form.password === ""}
+                  label="Login"
+                  onClick={handleLogin}
+                />
                 <button type="button" className={light.confirmForgot}>
                   <span className={light.forgotTitle}>Forgot your password?</span>
                 </button>

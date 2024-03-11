@@ -13,7 +13,11 @@
   cursor: pointer;
   @include defaultTransition;
 
-  &:hover {
+  &:disabled {
+    opacity: .75;
+  }
+
+  &:not([disabled]):hover {
     background-color: transparent;
   }
 

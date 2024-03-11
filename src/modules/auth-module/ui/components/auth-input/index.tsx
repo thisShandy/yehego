@@ -10,6 +10,7 @@ interface IAuthInput extends ITest {
   placeholder: string;
   value: string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  error?: boolean;
 }
 
 const AuthInput: FC<PropsWithChildren<IAuthInput>> = ({
@@ -19,10 +20,11 @@ const AuthInput: FC<PropsWithChildren<IAuthInput>> = ({
   name,
   placeholder,
   value,
-  handleChange
+  handleChange,
+  error = false
 }) => {
   return (
-    <div className={light.inputContainer}>
+    <div className={`${light.inputContainer} ${error && light.error}`}>
       <div className={light.inputContent}>
         <span className={light.contentTitle}>{name}</span>
         <input
