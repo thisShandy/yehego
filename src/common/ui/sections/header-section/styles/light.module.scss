@@ -1,0 +1,113 @@
+@import "src/common/styles/index";
+
+.headerWrapper {
+  @include flexRowCenter;
+
+  width: 100%;
+
+  background-color: rgba(255, 255, 255, .5);
+  backdrop-filter: blur(2rem);
+
+  .headerContainer {
+    @include flexRowSpace;
+
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+
+    .headerLogo {
+      flex: 1;
+      @include flexRowCenterLeft;
+      gap: 8px;
+
+      cursor: pointer;
+
+      .logoIcon {
+        @include flexRowCenter;
+
+        width: 40px;
+        height: 40px;
+
+        border-radius: 6px;
+        background-color: $main_color;
+
+        .iconTitle {
+          @include p(1.8em);
+        }
+      }
+
+      .logoTitle {
+        @include h5;
+      }
+    }
+
+    .headerMain {
+      flex: 3;
+      @include flexRowCenter;
+      gap: clamp(16px, 100%, 48px);
+
+      .mainNavigation {
+        width: 108px;
+        height: 36px;
+
+        border-radius: 6px;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        &:hover {
+          background-color: $main_color;
+        }
+
+        .navigationTitle {
+          @include p(1em);
+        }
+      }
+    }
+
+    .headerInfo {
+      flex: 1;
+      @include flexRowCenterRight;
+      gap: clamp(8px, 100%, 16px);
+
+      .infoSupport {
+        @include flexRowCenter;
+
+        width: 32px;
+        height: 32px;
+
+        border-radius: 999px;
+        border: 1px solid $text_color;
+
+        cursor: pointer;
+
+        .supportMark {
+          @include h5;
+          font-size: 1em;
+        }
+      }
+
+      .infoMenu {
+        @include flexRowCenter;
+
+        width: 40px;
+        height: 40px;
+
+        border-radius: 6px;
+        border: 1px solid $main_color;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        &:hover {
+          background-color: $main_color;
+        }
+
+        .menuIcon {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+}

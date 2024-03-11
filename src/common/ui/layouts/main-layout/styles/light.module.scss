@@ -1,0 +1,12 @@
+@import "src/common/styles/index";
+
+.mainWrapper {
+  width: 100%;
+  min-height: 100vh;
+
+  background: $background_color;
+
+  &.mainBackground {
+    background: url("../../../../assets/images/background.png") no-repeat center top / cover;
+  }
+}
