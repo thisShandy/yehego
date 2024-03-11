@@ -6,7 +6,8 @@
   width: 100%;
   min-height: 100vh;
 
-  background-color: rgba(106, 106, 106, .75);
+  background-color: rgba(29, 29, 31, 0.4);
+  backdrop-filter: blur(1rem);
 
   @include md {
     background-color: transparent;
