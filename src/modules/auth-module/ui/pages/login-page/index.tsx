@@ -1,5 +1,7 @@
 import { useLogin } from "~/modules/auth-module/model/hooks/useLogin.ts";
 
+import { unauthorizedGuard } from "~/common/lib/helpers/guards/unauthorizedGuard.tsx";
+
 import MainLayout from "~/common/ui/layouts/main-layout";
 import AuthLayout from "~/modules/auth-module/ui/layouts/auth-layout";
 import SideLayout from "~/modules/auth-module/ui/layouts/side-layout";
@@ -82,4 +84,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default unauthorizedGuard(LoginPage);
