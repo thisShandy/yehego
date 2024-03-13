@@ -15,13 +15,7 @@ import google from "~icons/sso/google.svg";
 import microsoft from "~icons/sso/microsoft.svg";
 
 const LoginPage = () => {
-  const {
-    form,
-    handleUpdate,
-    handleLogin,
-    loading,
-    error,
-  } = useLogin();
+  const { form, handleUpdate, handleLogin, loading, error } = useLogin();
 
   return (
     <MainLayout background header={false}>
@@ -47,11 +41,7 @@ const LoginPage = () => {
                 handleChange={(e) => handleUpdate("password", e)}
               />
               <div className={light.fieldsConfirm}>
-                {error && (
-                  <span className={light.conformError}>
-                    Incorrect login or password
-                  </span>
-                )}
+                {error && <span className={light.conformError}>Incorrect login or password</span>}
                 <ButtonUi
                   loading={loading}
                   disabled={form.email === "" || form.password === ""}
@@ -84,4 +74,6 @@ const LoginPage = () => {
   );
 };
 
-export default unauthorizedGuard(LoginPage);
+const LoginPageGuard = unauthorizedGuard(LoginPage);
+
+export default LoginPageGuard;

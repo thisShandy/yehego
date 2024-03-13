@@ -2,11 +2,9 @@ import { useState } from "react";
 
 import { searchTypes } from "~/common/lib/configs/search/search-types.ts";
 
-export const useSearchType = (
-  clearTripSearch: () => void
-) => {
-  const [ type, setType ] = useState(searchTypes.trip);
-  const [ typeClosing, setTypeClosing ] = useState<null | string>(null);
+export const useSearchType = (clearTripSearch: () => void) => {
+  const [type, setType] = useState(searchTypes.trip);
+  const [typeClosing, setTypeClosing] = useState<null | string>(null);
 
   const handleTrip = () => {
     setTypeClosing(searchTypes.hotel);
@@ -31,6 +29,6 @@ export const useSearchType = (
     type,
     typeClosing,
     handleTrip,
-    handleHotel,
+    handleHotel
   };
 };

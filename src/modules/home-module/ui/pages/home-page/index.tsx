@@ -9,16 +9,10 @@ import light from "./style/light.module.scss";
 const HomePage = () => {
   return (
     <MainLayout background>
-      <div
-        className={light.homeContainer}
-      >
+      <div className={light.homeContainer}>
         <div className={light.homeInfo}>
-          <span className={light.infoTitle}>
-            Good afternoon, Georgy
-          </span>
-          <span className={light.infoDescription}>
-            Book your next business trip
-          </span>
+          <span className={light.infoTitle}>Good afternoon, Georgy</span>
+          <span className={light.infoDescription}>Book your next business trip</span>
         </div>
         <SearchSection />
         <ClimateSection />
@@ -27,4 +21,6 @@ const HomePage = () => {
   );
 };
 
-export default authGuard(HomePage);
+const HomePageGuard = authGuard(HomePage);
+
+export default HomePageGuard;

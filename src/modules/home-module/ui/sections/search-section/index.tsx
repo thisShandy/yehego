@@ -13,105 +13,78 @@ import search from "~icons/search/search.svg";
 import arrow_down from "~icons/arrow/arrow_down.svg";
 
 const SearchSection = () => {
-  const {
-    accordion,
-    accordionClosing,
-    handleAccordion,
-    clearTripSearch
-  } = useSearchTrip();
+  const { accordion, accordionClosing, handleAccordion, clearTripSearch } = useSearchTrip();
 
-  const {
-    type,
-    typeClosing,
-    handleTrip,
-    handleHotel,
-  } = useSearchType(clearTripSearch);
+  const { type, typeClosing, handleTrip, handleHotel } = useSearchType(clearTripSearch);
 
   return (
     <div className={light.searchWrapper}>
-      <div
-        key={type}
-        className={`${light.searchType} ${typeClosing && light.reopen}`}
-      >
+      <div key={type} className={`${light.searchType} ${typeClosing && light.reopen}`}>
         <button
           type="button"
           onClick={handleTrip}
           className={`${light.typeButton} ${type === searchTypes.trip && light.active}`}
         >
-          <span className={light.buttonTitle}>
-            Trips
-          </span>
+          <span className={light.buttonTitle}>Trips</span>
         </button>
         <button
           type="button"
           onClick={handleHotel}
           className={`${light.typeButton} ${type === searchTypes.hotel && light.active}`}
         >
-          <span className={light.buttonTitle}>
-            Hotels
-          </span>
+          <span className={light.buttonTitle}>Hotels</span>
         </button>
       </div>
       {type === searchTypes.trip && (
         <div className={`${light.searchContainer} ${typeClosing === searchTypes.trip && light.closing}`}>
           <div className={`${light.searchRow} ${light.top}`}>
-            <CitySelect label="From" selected={null}/>
-            <div className={light.searchDivider}/>
-            <CitySelect label="From" selected={null}/>
-            <div className={light.searchDivider}/>
-            <DateSelect label="Outward" selected={null}/>
-            <div className={light.searchDivider}/>
-            <DateSelect label="Return" selected={null}/>
-            <div className={light.searchDivider}/>
-            <button
-              type="button"
-              className={light.searchAccordion}
-              onClick={handleAccordion}
-            >
+            <CitySelect label="From" selected={null} />
+            <div className={light.searchDivider} />
+            <CitySelect label="From" selected={null} />
+            <div className={light.searchDivider} />
+            <DateSelect label="Outward" selected={null} />
+            <div className={light.searchDivider} />
+            <DateSelect label="Return" selected={null} />
+            <div className={light.searchDivider} />
+            <button type="button" className={light.searchAccordion} onClick={handleAccordion}>
               <img
                 src={arrow_down}
                 alt="arrow_down"
                 className={`${light.accordionIcon} ${accordion && !accordionClosing && light.active}`}
               />
             </button>
-            <button
-              type="button"
-              disabled={true}
-              className={light.searchButton}
-            >
-              <img src={search} alt="search"/>
+            <button type="button" disabled={true} className={light.searchButton}>
+              <img src={search} alt="search" />
             </button>
           </div>
           {accordion && (
             <div className={`${light.accordion} ${accordionClosing && light.closing}`}>
-              <div className={light.searchBorder}/>
+              <div className={light.searchBorder} />
               <div className={light.searchRow}>
                 <TimeSelect label="Outward time" selected={null} />
                 <div className={light.searchDivider} />
                 <TimeSelect label="Return time" selected={null} />
                 <div className={light.searchDivider} />
-                <UserSelect trip label="Passengers"/>
+                <UserSelect trip label="Passengers" />
               </div>
             </div>
           )}
         </div>
       )}
       {type === searchTypes.hotel && (
-        <div className={`${light.searchContainer} ${light.hotel} ${typeClosing === searchTypes.hotel && light.closing}`}>
+        <div
+          className={`${light.searchContainer} ${light.hotel} ${typeClosing === searchTypes.hotel && light.closing}`}
+        >
           <div className={light.searchRow}>
             <CitySelect label="City" selected={null} />
-            <div className={light.searchDivider}/>
+            <div className={light.searchDivider} />
             <DateSelect label="Outward" selected={null} />
-            <div className={light.searchDivider}/>
+            <div className={light.searchDivider} />
             <DateSelect label="Return" selected={null} />
             <div className={light.searchDivider} />
             <UserSelect label="Passengers" />
-            <button
-              type="button"
-              disabled={true}
-              className={light.searchButton}
-            >
-              <img src={search} alt="search"/>
+            <button type="button" disabled={true} className={light.searchButton}>
+              <img src={search} alt="search" />
             </button>
           </div>
         </div>

@@ -7,33 +7,17 @@ interface IUserSelect {
   label: string;
 }
 
-const UserSelect: FC<IUserSelect> = ({
-  trip, label
-}) => {
+const UserSelect: FC<IUserSelect> = ({ trip, label }) => {
   return (
     <div className={`${light.userContainer} ${trip && light.trip}`}>
-      <span className={light.userLabel}>
-        {label}
-      </span>
+      <span className={light.userLabel}>{label}</span>
       <div className={light.userContent}>
-        <button
-          type="button"
-          className={light.contentUser}
-        >
-          <span className={light.userTitle}>
-            GP
-          </span>
-          <span className={light.userRemove}>
-            +
-          </span>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
         </button>
-        <button
-          type="button"
-          className={light.contentAdd}
-        >
-          <span className={light.addTitle}>
-            +
-          </span>
+        <button type="button" className={light.contentAdd}>
+          <span className={light.addTitle}>+</span>
         </button>
       </div>
     </div>

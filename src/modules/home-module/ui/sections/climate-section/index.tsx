@@ -25,19 +25,16 @@ const ClimateSection = () => {
         ballStrokeWidth={16}
         hideValue={false}
         background="#ffffff"
-        transitionDuration={.5}
-        gradient={[{ stop: 0, color: "#15a848" }, { stop: 1, color: "#FFD464" }]}
+        transitionDuration={0.5}
+        gradient={[
+          { stop: 0, color: "#15a848" },
+          { stop: 1, color: "#FFD464" }
+        ]}
       />
       <div className={light.climateContent}>
-        <span className={light.contentTitle}>
-          My CO₂ goal
-        </span>
-        <span className={light.contentValue}>
-          202/500kg
-        </span>
-        <span className={light.contentInfo}>
-          298kg left to max
-        </span>
+        <span className={light.contentTitle}>My CO₂ goal</span>
+        <span className={light.contentValue}>202/500kg</span>
+        <span className={light.contentInfo}>298kg left to max</span>
       </div>
     </div>
   );

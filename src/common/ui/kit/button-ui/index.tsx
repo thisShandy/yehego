@@ -9,16 +9,9 @@ interface IButtonUi {
   onClick: () => void;
 }
 
-const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({
-  children, loading, disabled, label, onClick
-}) => {
+const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({ children, loading, disabled, label, onClick }) => {
   return (
-    <button
-      type="button"
-      disabled={disabled}
-      onClick={onClick}
-      className={light.buttonContainer}
-    >
+    <button type="button" disabled={disabled} onClick={onClick} className={light.buttonContainer}>
       {label && !loading && <span className={light.buttonTitle}>{label}</span>}
       {loading && <span className={light.buttonTitle}>Loading...</span>}
       {children}

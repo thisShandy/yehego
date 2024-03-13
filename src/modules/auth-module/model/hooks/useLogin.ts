@@ -23,7 +23,7 @@ export const useLogin = () => {
     setError(false);
 
     const value = e.target.value;
-    setForm(prev => ({
+    setForm((prev) => ({
       ...prev,
       [key]: value
     }));
@@ -32,7 +32,7 @@ export const useLogin = () => {
   const handleLogin = async () => {
     setLoading(true);
     try {
-      const response = await api.login.loginUser(form) as AxiosResponse<{ access_token: string }>;
+      const response = (await api.login.loginUser(form)) as AxiosResponse<{ access_token: string }>;
 
       localStorage.setItem("@accessToken", JSON.stringify(response.data.access_token));
 
@@ -53,6 +53,6 @@ export const useLogin = () => {
     handleUpdate,
     handleLogin,
     loading,
-    error,
+    error
   };
 };
