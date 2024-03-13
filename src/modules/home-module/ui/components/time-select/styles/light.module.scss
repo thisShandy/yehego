@@ -1,0 +1,27 @@
+@import "src/common/styles/index";
+
+.timeContainer {
+  @include flexColumnCenterLeft;
+  gap: 4px;
+
+  width: 92px;
+  height: 42px;
+
+  cursor: pointer;
+
+  @include fadeIn;
+  animation-delay: .35s;
+
+  .timeLabel {
+    @include p(.75em, $text_color_light);
+  }
+
+  .timeSelected {
+    @include p(1em);
+  }
+
+  .timePlaceholder {
+    @include p(1em);
+    opacity: .65;
+  }
+}

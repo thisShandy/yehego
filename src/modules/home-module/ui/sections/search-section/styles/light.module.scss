@@ -1,0 +1,266 @@
+@import "src/common/styles/index";
+
+.searchWrapper {
+  @include flexColumnTopCenter;
+
+  width: 100%;
+  min-height: 280px;
+
+  .searchType {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    position: relative;
+
+    width: calc(128px * 2 + 1rem);
+    padding: .75rem 1rem;
+
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-color: $background_color;
+
+    transform-origin: bottom;
+    animation: slideDownOpacity ease-in-out .35s backwards;
+
+    &.reopen {
+      animation: slideUpOpacity ease-in-out .35s forwards;
+    }
+
+    .typeButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 128px;
+      height: 40px;
+
+      border-radius: 8px;
+      background-color: $background_color;
+
+      @include defaultTransition;
+      cursor: pointer;
+
+      @include fadeIn;
+      animation-delay: .35s;
+
+      &.active {
+        background-color: $main_color;
+      }
+
+      &:hover {
+        background-color: rgba(255, 212, 100, 0.5);
+      }
+
+      .buttonTitle {
+        @include p(1em);
+      }
+    }
+  }
+
+  .searchContainer {
+    @include flexColumnCenterLeft;
+    transform-origin: top;
+
+    animation: scaleOut ease-in-out .35s backwards;
+
+    &.closing {
+      animation: scaleIn ease-in-out .35s forwards;
+    }
+
+    .accordion {
+      position: relative;
+      top: -36px;
+
+      @include flexColumnCenterLeft;
+      gap: 8px;
+
+      width: 100%;
+      padding-top: 2rem;
+      padding-bottom: .5rem;
+
+      transform-origin: top;
+      animation: slideDown ease-in-out .2s backwards;
+
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+      background-color: $background_color;
+
+      &.closing {
+        animation: slideUp ease-in-out .2s forwards;
+      }
+    }
+
+    .searchRow {
+      @include flexRowCenterLeft;
+      gap: 32px;
+
+      border-radius: 40px;
+      padding: 1rem;
+      padding-left: 1.75rem;
+      background-color: $background_color;
+
+      &.top {
+        z-index: 1;
+      }
+
+      .searchDivider {
+        width: 1px;
+        height: 42px;
+
+        background-color: $border_color;
+
+        @include fadeIn;
+        animation-delay: .35s;
+      }
+
+      .searchAccordion {
+        cursor: pointer;
+
+        @include fadeIn;
+        animation-delay: .35s;
+
+        .accordionIcon {
+          transform: rotate(180deg);
+
+          @include defaultTransition;
+          transition-duration: .2s;
+
+          &.active {
+            transform: rotate(0deg);
+          }
+        }
+      }
+
+      .searchButton {
+        @include flexRowCenter;
+
+        width: 52px;
+        height: 52px;
+
+        border-radius: 999px;
+        border: 1px solid $main_color;
+        background-color: $main_color;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        animation: fadeInButton ease-in-out .15s backwards;
+        animation-delay: .35s;
+
+        &:disabled {
+          opacity: .75;
+        }
+
+        &:not([disabled]):hover {
+          background-color: transparent;
+        }
+      }
+    }
+
+    .searchBorder {
+      position: relative;
+      top: 8px;
+
+      width: 100%;
+      height: 1px;
+
+      background-color: $border_color;
+    }
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(0, 1);
+    opacity: 0;
+  }
+}
+
+@keyframes scaleOut {
+  0% {
+    transform: scale(0, 1);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDownOpacity {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUpOpacity {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: scaleY(0);
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: scaleY(1);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes fadeInButton {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .75;
+  }
+}

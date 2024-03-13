@@ -8,6 +8,9 @@
   background-color: rgba(255, 255, 255, .5);
   backdrop-filter: blur(2rem);
 
+  @include fadeIn;
+  animation-duration: .4s;
+
   .headerContainer {
     @include flexRowSpace;
 
@@ -73,27 +76,6 @@
       flex: 1;
       @include flexRowCenterRight;
       gap: clamp(8px, 100%, 16px);
-
-      .infoSupport {
-        @include flexRowCenter;
-
-        width: 32px;
-        height: 32px;
-
-        border-radius: 999px;
-        border: 1px solid $text_color;
-
-        cursor: pointer;
-
-        @include md {
-          display: none;
-        }
-
-        .supportMark {
-          @include h5;
-          font-size: 1em;
-        }
-      }
 
       .infoMenu {
         @include flexRowCenter;

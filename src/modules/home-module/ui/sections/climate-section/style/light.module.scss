@@ -1,0 +1,57 @@
+@import "src/common/styles/index";
+
+.climateContainer {
+  width: 256px;
+  height: 256px;
+
+  position: relative;
+
+  // @include fadeIn;
+  // animation-duration: .3s;
+
+  .climateProgress {
+    width: 100%;
+    height: 100%;
+  }
+
+  .climateContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    position: absolute;
+    top: calc(50% - 72px);
+    left: calc(50% - 100px);
+
+    width: 200px;
+    height: 128px;
+
+    @include fadeIn;
+    animation-duration: .4s;
+
+    .contentTitle {
+      @include h4;
+      font-size: 1.2em;
+      color: $background_color;
+
+      text-align: center;
+    }
+
+    .contentValue {
+      @include h2;
+      font-size: 1.8em;
+      color: $background_color;
+
+      text-align: center;
+    }
+
+    .contentInfo {
+      @include p(1em);
+      color: $background_color;
+
+      text-align: center;
+    }
+  }
+}

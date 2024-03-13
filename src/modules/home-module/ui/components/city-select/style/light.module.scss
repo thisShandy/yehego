@@ -1,0 +1,27 @@
+@import "src/common/styles/index";
+
+.cityContainer {
+  @include flexColumnCenterLeft;
+  gap: 4px;
+
+  width: 92px;
+  height: 42px;
+
+  cursor: pointer;
+
+  @include fadeIn;
+  animation-delay: .35s;
+
+  .cityLabel {
+    @include p(.75em, $text_color_light);
+  }
+
+  .citySelected {
+    @include p(1em);
+  }
+
+  .cityPlaceholder {
+    @include p(1em);
+    opacity: .65;
+  }
+}

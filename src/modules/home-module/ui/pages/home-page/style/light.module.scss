@@ -1,0 +1,44 @@
+@import "src/common/styles/index";
+
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  padding: 2.5rem 0;
+
+  background-color: rgba(29, 29, 31, 0.4);
+  backdrop-filter: blur(1rem);
+
+  .homeInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    // @include fadeIn;
+    // animation-duration: .3s;
+    margin-top: 3.5rem;
+    margin-bottom: 2rem;
+
+    @include fadeIn;
+    animation-duration: .4s;
+
+    .infoTitle {
+      @include h1;
+      color: $background_color;
+
+      text-align: center;
+    }
+
+    .infoDescription {
+      @include p(1.6em);
+      color: $background_color;
+
+      text-align: center;
+    }
+  }
+}

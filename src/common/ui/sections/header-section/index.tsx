@@ -23,9 +23,6 @@ const HeaderSection = () => {
           </button>
         </div>
         <div className={light.headerInfo}>
-          <button type="button" className={`${light.infoSupport} ${light.dark}`}>
-            <span className={light.supportMark}>?</span>
-          </button>
           <button type="button" className={light.infoMenu}>
             <img className={light.menuIcon} src={burger} alt="burger" />
           </button>

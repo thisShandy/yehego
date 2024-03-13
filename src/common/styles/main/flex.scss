@@ -41,6 +41,13 @@
   justify-content: center;
 }
 
+@mixin flexColumnTopCenter() {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 @mixin flexColumnCenterLeft() {
   display: flex;
   flex-direction: column;

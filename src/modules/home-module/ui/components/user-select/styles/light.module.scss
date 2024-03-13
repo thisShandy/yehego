@@ -1,0 +1,97 @@
+@import "src/common/styles/index";
+
+.userContainer {
+  @include flexColumnCenterLeft;
+  gap: 4px;
+
+  width: 156px;
+  height: 42px;
+
+  overflow: scroll;
+  overflow-y: hidden;
+
+  @include fadeIn;
+  animation-delay: .35s;
+
+  &.trip {
+    width: auto;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .userLabel {
+    @include p(.75em, $text_color_light);
+  }
+
+  .userContent {
+    @include flexRowCenterLeft;
+    gap: 6px;
+
+    .contentUser {
+      @include flexRowCenter;
+
+      position: relative;
+
+      width: 48px;
+      height: 26px;
+
+      border-radius: 6px;
+      border: 1px solid $main_color;
+      background-color: $main_color;
+
+      cursor: pointer;
+      @include defaultTransition;
+
+      &:hover {
+        background-color: transparent;
+
+        .userTitle {
+          opacity: 0;
+        }
+
+        .userRemove {
+          opacity: 1;
+        }
+      }
+
+      .userTitle {
+        margin-top: 1px;
+
+        opacity: 1;
+        @include defaultTransition;
+
+        @include p(.875em);
+      }
+
+      .userRemove {
+        position: absolute;
+        top: 3px;
+        left: 16.5px;
+
+        opacity: 0;
+        @include defaultTransition;
+
+        @include p(1.2em);
+        transform: rotate(45deg);
+      }
+    }
+
+    .contentAdd {
+      @include flexRowCenter;
+
+      width: 26px;
+      height: 26px;
+
+      border-radius: 6px;
+      border: 1px solid $main_color;
+
+      cursor: pointer;
+
+      .addTitle {
+        @include p(1em);
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+@import "src/common/styles/index";
+
+.dateContainer {
+  @include flexColumnCenterLeft;
+  gap: 4px;
+
+  width: 92px;
+  height: 42px;
+
+  cursor: pointer;
+
+  @include fadeIn;
+  animation-delay: .35s;
+
+  .dateLabel {
+    @include p(.75em, $text_color_light);
+  }
+
+  .dateSelected {
+    @include p(1em);
+  }
+
+  .datePlaceholder {
+    @include p(1em);
+    opacity: .65;
+  }
+}
