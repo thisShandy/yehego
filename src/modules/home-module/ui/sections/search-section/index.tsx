@@ -3,7 +3,7 @@ import { useSearchType } from "~/modules/home-module/model/hooks/useSearchType.t
 
 import { searchTypes } from "~/common/lib/configs/search/search-types.ts";
 
-import DateSelect from "~/modules/home-module/ui/components/date-select";
+import DatePicker from "~/modules/home-module/ui/components/date-picker";
 import CitySelect from "~/modules/home-module/ui/components/city-select";
 import UserSelect from "~/modules/home-module/ui/components/user-select";
 import TimeSelect from "~/modules/home-module/ui/components/time-select";
@@ -14,7 +14,6 @@ import arrow_down from "~icons/arrow/arrow_down.svg";
 
 const SearchSection = () => {
   const { accordion, accordionClosing, handleAccordion, clearTripSearch } = useSearchTrip();
-
   const { type, typeClosing, handleTrip, handleHotel } = useSearchType(clearTripSearch);
 
   return (
@@ -41,11 +40,7 @@ const SearchSection = () => {
             <CitySelect label="From" selected={null} />
             <div className={light.searchDivider} />
             <CitySelect label="From" selected={null} />
-            <div className={light.searchDivider} />
-            <DateSelect label="Outward" selected={null} />
-            <div className={light.searchDivider} />
-            <DateSelect label="Return" selected={null} />
-            <div className={light.searchDivider} />
+            <DatePicker />
             <button type="button" className={light.searchAccordion} onClick={handleAccordion}>
               <img
                 src={arrow_down}
@@ -77,11 +72,7 @@ const SearchSection = () => {
         >
           <div className={light.searchRow}>
             <CitySelect label="City" selected={null} />
-            <div className={light.searchDivider} />
-            <DateSelect label="Outward" selected={null} />
-            <div className={light.searchDivider} />
-            <DateSelect label="Return" selected={null} />
-            <div className={light.searchDivider} />
+            <DatePicker />
             <UserSelect label="Passengers" />
             <button type="button" disabled={true} className={light.searchButton}>
               <img src={search} alt="search" />

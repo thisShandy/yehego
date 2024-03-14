@@ -1,0 +1,45 @@
+.Calendar {
+  animation: fadeIn ease-in-out .15s backwards;
+  animation-delay: 20s;
+}
+
+.Calendar__monthArrow {
+  width: 1rem;
+  height: 1rem;
+}
+
+.Calendar__monthYear {
+  font-size: 1em;
+}
+
+.Calendar__day {
+  font-size: 1em !important;
+}
+
+.Calendar__sectionWrapper {
+  min-height: 228px;
+}
+
+.Calendar__day {
+  min-height: 2.4rem !important;
+}
+
+.-selectedStart {
+  border-top-left-radius: 12px !important;
+  border-bottom-left-radius: 12px !important;
+}
+
+.-selectedEnd {
+  border-radius: 0 12px 12px 0 !important;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+

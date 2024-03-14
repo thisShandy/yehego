@@ -66,7 +66,7 @@ const LoginPage = () => {
           </div>
           <div className={light.welcomeInfo}>
             <span className={light.infoTitle}>Welcome to Yehego!</span>
-            <span className={light.infoDescription}>Pease login to start booking your next business trip</span>
+            <span className={light.infoDescription}>Pease login to book your next business trip</span>
           </div>
         </div>
       </AuthLayout>

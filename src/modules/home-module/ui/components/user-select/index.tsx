@@ -16,6 +16,30 @@ const UserSelect: FC<IUserSelect> = ({ trip, label }) => {
           <span className={light.userTitle}>GP</span>
           <span className={light.userRemove}>+</span>
         </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
+        <button type="button" className={light.contentUser}>
+          <span className={light.userTitle}>GP</span>
+          <span className={light.userRemove}>+</span>
+        </button>
         <button type="button" className={light.contentAdd}>
           <span className={light.addTitle}>+</span>
         </button>
