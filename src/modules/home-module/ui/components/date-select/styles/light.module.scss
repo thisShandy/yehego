@@ -4,10 +4,14 @@
   @include flexColumnCenterLeft;
   gap: 4px;
 
-  width: 92px;
+  width: 156px;
   height: 42px;
 
   cursor: pointer;
+
+  &:disabled {
+    opacity: .5;
+  }
 
   @include fadeIn;
   animation-delay: .35s;

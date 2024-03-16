@@ -13,8 +13,23 @@ import search from "~icons/search/search.svg";
 import arrow_down from "~icons/arrow/arrow_down.svg";
 
 const SearchSection = () => {
-  const { accordion, accordionClosing, handleAccordion, clearTripSearch } = useSearchTrip();
-  const { type, typeClosing, handleTrip, handleHotel } = useSearchType(clearTripSearch);
+  const {
+    form: tripForm,
+    formActions,
+    clearTripSearch
+  } = useSearchTrip();
+
+  const {
+    type,
+    typeClosing,
+    handleTrip,
+    handleHotel,
+    dateOpen,
+    handleDateOpen,
+    accordion,
+    accordionClosing,
+    handleAccordion,
+  } = useSearchType(clearTripSearch);
 
   return (
     <div className={light.searchWrapper}>
@@ -37,10 +52,23 @@ const SearchSection = () => {
       {type === searchTypes.trip && (
         <div className={`${light.searchContainer} ${typeClosing === searchTypes.trip && light.closing}`}>
           <div className={`${light.searchRow} ${light.top}`}>
-            <CitySelect label="From" selected={null} />
+            <CitySelect open={true} label="From" selected={null} />
             <div className={light.searchDivider} />
-            <CitySelect label="From" selected={null} />
-            <DatePicker />
+            <CitySelect open={false} label="From" selected={null} />
+            <DatePicker
+              type={searchTypes.trip}
+              oneway={tripForm.oneway}
+              outwardDate={tripForm.outwardDate}
+              returnDate={tripForm.returnDate}
+              range={tripForm.rangeDate}
+              dateOpen={dateOpen}
+              handleOneway={formActions.oneway}
+              handleDateOpen={() => {
+                !dateOpen && formActions.oneway(false);
+                handleDateOpen();
+              }}
+              handleSelect={formActions.date}
+            />
             <button type="button" className={light.searchAccordion} onClick={handleAccordion}>
               <img
                 src={arrow_down}
@@ -70,14 +98,36 @@ const SearchSection = () => {
         <div
           className={`${light.searchContainer} ${light.hotel} ${typeClosing === searchTypes.hotel && light.closing}`}
         >
-          <div className={light.searchRow}>
-            <CitySelect label="City" selected={null} />
-            <DatePicker />
-            <UserSelect label="Passengers" />
+          <div className={`${light.searchRow} ${light.top}`}>
+            <CitySelect label="City" selected={null}/>
+            <DatePicker
+              type={searchTypes.hotel}
+              outwardDate={tripForm.outwardDate}
+              returnDate={tripForm.returnDate}
+              range={tripForm.rangeDate}
+              dateOpen={dateOpen}
+              handleDateOpen={handleDateOpen}
+              handleSelect={formActions["date"]}
+            />
+            <button type="button" className={light.searchAccordion} onClick={handleAccordion}>
+              <img
+                src={arrow_down}
+                alt="arrow_down"
+                className={`${light.accordionIcon} ${accordion && !accordionClosing && light.active}`}
+              />
+            </button>
             <button type="button" disabled={true} className={light.searchButton}>
-              <img src={search} alt="search" />
+              <img src={search} alt="search"/>
             </button>
           </div>
+          {accordion && (
+            <div className={`${light.accordion} ${accordionClosing && light.closing}`}>
+              <div className={light.searchBorder}/>
+              <div className={light.searchRow}>
+                <UserSelect trip label="Passengers"/>
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

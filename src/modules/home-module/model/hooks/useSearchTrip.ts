@@ -1,29 +1,46 @@
 import { useState } from "react";
 
-export const useSearchTrip = () => {
-  const [accordion, setAccordion] = useState<boolean>(false);
-  const [accordionClosing, setAccordionClosing] = useState<boolean>(false);
+import { useDateSelect } from "~/modules/home-module/model/hooks/useDateSelect.ts";
 
-  const handleAccordion = () => {
-    if (accordion) {
-      setAccordionClosing(true);
-      setTimeout(() => {
-        setAccordion(false);
-        setAccordionClosing(false);
-      }, 200);
-    } else {
-      setAccordion(true);
-    }
+import { dateFormat } from "~/common/lib/configs/date/date-format.ts";
+
+export const useSearchTrip = () => {
+  const [oneway, setOneway] = useState<boolean>(true);
+
+  const {
+    dateSelected,
+    setDateSelected,
+    selectionRange,
+    handleSelect
+  } = useDateSelect();
+
+  const form = {
+    oneway,
+    outwardCity: null,
+    returnCity: null,
+    outwardDate: dateSelected && selectionRange.startDate
+      ? selectionRange.startDate.toLocaleDateString("en-US", dateFormat) : null,
+    returnDate: !oneway && dateSelected && selectionRange.endDate
+      ? selectionRange.endDate.toLocaleDateString("en-US", dateFormat) : null,
+    rangeDate: selectionRange
+  };
+
+  const handleOneway = (value?: boolean) => {
+    setOneway(prev => typeof value === "boolean" ? value : !prev);
+  };
+
+  const formActions = {
+    oneway: handleOneway,
+    date: handleSelect
   };
 
   const clearTripSearch = () => {
-    setAccordion(false);
+    setDateSelected(false);
   };
 
   return {
-    accordion,
-    accordionClosing,
-    handleAccordion,
-    clearTripSearch
+    form,
+    formActions,
+    clearTripSearch,
   };
 };

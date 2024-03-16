@@ -16,21 +16,54 @@
     animation-delay: .35s;
   }
 
-  .searchPicker {
-    display: none;
-    opacity: 0;
-
+  .searchCalendar {
     position: absolute;
-    top: 42px;
-    left: 0;
+    left: calc(50% - 180px);
+    top: 56px;
 
-    transform-origin: top;
+    z-index: 990;
 
-    &.active {
-      display: flex;
-      opacity: 1;
+    .calendarControl {
+      @include flexRowSpace;
 
-      animation: slideDown ease-in-out .2s backwards;
+      position: absolute;
+      left: 16px;
+      top: 16px;
+
+      width: 328px;
+
+      .controlWay {
+        width: 128px;
+        height: 32px;
+
+        border-radius: 8px;
+        border: 1px solid $main_color;
+        background-color: $main_color;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        &:hover {
+          background-color: transparent;
+        }
+
+        .wayTitle {
+          @include p(.9em);
+        }
+      }
+
+      .controlClose {
+        @include flexRowCenter;
+
+        height: 32px;
+
+        cursor: pointer;
+
+        .closeTitle {
+          transform: rotate(45deg);
+          @include p(1.4em);
+        }
+      }
     }
   }
 }

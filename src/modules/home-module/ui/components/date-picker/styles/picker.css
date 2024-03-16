@@ -1,0 +1,43 @@
+.rdrDateDisplayWrapper {
+  display: none;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none;
+}
+
+.rdrCalendarWrapper {
+  border-radius: 24px;
+  border: 1px solid #CDCDCD;
+}
+
+.rdrMonth {
+  width: 360px;
+}
+
+.rdrDay {
+  height: 2.5em;
+}
+
+.rdrStartEdge {
+  border-top-left-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
+}
+
+.rdrEndEdge {
+  border-top-right-radius: 10px !important;
+  border-bottom-right-radius: 10px !important;
+}
+
+.rdrDayNumber > span::after {
+  background: #FFD464 !important;
+}
+
+.rdrInRange {
+  transition: all ease-in-out .15s;
+}
+
+.rdrMonthAndYearWrapper {
+  height: 96px;
+  padding-top: 56px;
+}

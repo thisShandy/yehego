@@ -13,31 +13,7 @@ const UserSelect: FC<IUserSelect> = ({ trip, label }) => {
       <span className={light.userLabel}>{label}</span>
       <div className={light.userContent}>
         <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
-          <span className={light.userRemove}>+</span>
-        </button>
-        <button type="button" className={light.contentUser}>
-          <span className={light.userTitle}>GP</span>
+          <span className={light.userTitle}>Georgy Pavlov</span>
           <span className={light.userRemove}>+</span>
         </button>
         <button type="button" className={light.contentAdd}>
