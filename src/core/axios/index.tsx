@@ -12,7 +12,7 @@ const Axios = axios.create({
 
 Axios.interceptors.request.use(
   async (request) => {
-    const token = localStorage.getItem("@accessToken");
+    const token = localStorage.getItem("access_token");
 
     console.log("token", token);
     if (token) {
