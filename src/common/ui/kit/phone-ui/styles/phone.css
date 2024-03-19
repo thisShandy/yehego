@@ -1,0 +1,39 @@
+.form-control {
+  border: none !important;
+
+  font-family: "Poppins", sans-serif !important;
+  font-weight: 400 !important;
+  font-size: .938em !important;
+  color: #1D1D1F !important;
+
+  line-height: 100% !important;
+
+  background-color: transparent !important;
+}
+
+.form-control::placeholder {
+  opacity: .5;
+}
+
+.flag-dropdown {
+  border: none !important;
+  border-right: 1px solid #CDCDCD !important;
+
+  background-color: transparent !important;
+}
+
+.flag-dropdown:hover {
+  background-color: transparent !important;
+}
+
+.selected-flag {
+  background-color: transparent !important;
+}
+
+.selected-flag:hover {
+  background-color: transparent !important;
+}
+
+.selected-flag {
+  padding: 0 !important;
+}

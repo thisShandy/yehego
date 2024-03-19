@@ -1,0 +1,50 @@
+@import "src/common/styles/index";
+
+.phoneContainer {
+  @include flexRowCenterLeft;
+
+  width: 100%;
+  height: 56px;
+  padding: .75rem 1.25rem;
+
+  border-radius: 10px;
+  border: 1px solid $border_color;
+
+  position: relative;
+
+  @include defaultTransition;
+
+  &.error {
+    border-color: $red_color;
+    background-color: $red_color_hover;
+
+    .phoneTitle {
+      color: $red_color;
+      background-color: $red_color_hover;
+    }
+  }
+
+  &:hover {
+    border-color: $main_color;
+    background-color: $main_color_hover;
+
+    .phoneTitle {
+      color: $main_color;
+      background-color: $main_color_hover;
+    }
+  }
+
+  .phoneTitle {
+    position: absolute;
+    top: -8px;
+
+    padding: .1rem .5rem;
+
+    @include p(.8em, $text_color_light);
+
+    border-radius: 4px;
+    background-color: $background_color;
+
+    @include defaultTransition;
+  }
+}

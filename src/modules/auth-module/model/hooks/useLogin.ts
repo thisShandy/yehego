@@ -34,7 +34,7 @@ export const useLogin = () => {
     try {
       const response = (await api.login.loginUser(form)) as AxiosResponse<{ access_token: string }>;
 
-      localStorage.setItem("@accessToken", JSON.stringify(response.data.access_token));
+      localStorage.setItem("access_token", JSON.stringify(response.data.access_token));
 
       setTimeout(() => {
         navigate("/");

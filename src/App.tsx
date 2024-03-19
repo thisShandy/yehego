@@ -1,14 +1,10 @@
 import { RecoilRoot } from "recoil";
-import { RouterProvider } from "react-router-dom";
-
-import Router from "~/core/router";
-
-const router = Router();
+import Core from "~/core";
 
 const App = () => {
   return (
     <RecoilRoot>
-      <RouterProvider router={router} />
+      <Core />
     </RecoilRoot>
   );
 };

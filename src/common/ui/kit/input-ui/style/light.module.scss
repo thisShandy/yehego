@@ -1,6 +1,8 @@
 @import "src/common/styles/index";
 
 .inputContainer {
+  @include flexRowSpace;
+
   width: 100%;
   height: 56px;
   padding: .75rem 1.25rem;
@@ -8,12 +10,50 @@
   border-radius: 10px;
   border: 1px solid $border_color;
 
+  @include defaultTransition;
+
+  &.error {
+    border-color: $red_color;
+    background-color: $red_color_hover;
+
+    .inputContent {
+      .contentTitle {
+        color: $red_color;
+        background-color: $red_color_hover;
+      }
+    }
+  }
+
+  &:hover {
+    border-color: $main_color;
+    background-color: $main_color_hover;
+
+    .inputContent {
+      .contentTitle {
+        color: $main_color;
+        background-color: $main_color_hover;
+      }
+    }
+  }
+
   .inputContent {
-    @include flexColumnCenterLeft;
+    @include flexRowCenterLeft;
     width: 100%;
 
+    position: relative;
+
     .contentTitle {
-      @include p(.75em, $text_color_light);
+      position: absolute;
+      top: -23px;
+
+      padding: .1rem .5rem;
+
+      @include p(.8em, $text_color_light);
+
+      border-radius: 4px;
+      background-color: $background_color;
+
+      @include defaultTransition;
     }
 
     .contentField {

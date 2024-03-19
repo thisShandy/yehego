@@ -1,0 +1,63 @@
+@import "src/common/styles/index";
+
+.formWrapper {
+  margin: 0 auto;
+
+  .formContainer {
+    @include flexColumnCenterLeft;
+    gap: 48px;
+
+    width: 100%;
+    margin: 2rem 0;
+
+    .formTitle {
+      @include h3;
+    }
+
+    .formContent {
+      @include flexColumnCenterLeft;
+      gap: 32px;
+
+      width: 100%;
+
+      .formGroup {
+        @include flexColumnCenterLeft;
+        gap: 24px;
+
+        width: 100%;
+
+        .groupTitle {
+          @include h5;
+        }
+
+        .groupContent {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-column-gap: 24px;
+          grid-row-gap: 24px;
+
+          width: 100%;
+
+          @include sm {
+            @include flexColumnCenterLeft;
+          }
+        }
+      }
+    }
+
+    .formSubmit {
+      @include flexColumnCenterLeft;
+
+      min-width: 256px;
+
+      .submitError {
+        @include p(1em);
+        color: $red_color;
+      }
+
+      @include sm {
+        width: 100%;
+      }
+    }
+  }
+}

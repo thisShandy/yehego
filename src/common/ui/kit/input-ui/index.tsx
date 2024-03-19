@@ -3,12 +3,13 @@ import type { ITest } from "~/common/lib/types/test.type.ts";
 
 import light from "./style/light.module.scss";
 
-interface IInputUi extends ITest {
+export interface IInputUi extends ITest {
   testId?: string;
   type: string;
   name: string;
-  placeholder: string;
+  placeholder?: string;
   value: string;
+  error?: null | string;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -17,14 +18,17 @@ const InputUi: FC<PropsWithChildren<IInputUi>> = ({
   testId = "",
   type,
   name,
-  placeholder,
+  placeholder = "",
   value,
+  error,
   handleChange
 }) => {
   return (
-    <div className={light.inputContainer}>
+    <div
+      className={`${light.inputContainer} ${error && light.error}`}
+    >
       <div className={light.inputContent}>
-        <span className={light.contentTitle}>{name}</span>
+        <span className={light.contentTitle}>{error || name}</span>
         <input
           data-testid={testId}
           type={type}
