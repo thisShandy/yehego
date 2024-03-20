@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import type { AxiosResponse } from "axios";
 import type { IFormItem } from "~/common/lib/types/form/form-item.type.ts";
 
 import { useForm } from "~/common/model/hooks/form/useForm.tsx";
@@ -17,7 +16,7 @@ interface IFormSection {
   formName: string;
   formConfig: IFormItem[];
   submitLabel: string;
-  submit: (data: any) => Promise<AxiosResponse<any, any>>;
+  submit: (data: any) => any;
 }
 
 const FormSection: FC<IFormSection> = ({

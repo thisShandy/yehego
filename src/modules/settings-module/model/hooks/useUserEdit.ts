@@ -1,4 +1,5 @@
 import type { IUser } from "~/common/lib/types/user/user.type.ts";
+import type { ILoyaltyCard } from "~/common/lib/types/user/loyalty-card.type.ts";
 
 import { useState, useEffect } from "react";
 
@@ -11,6 +12,7 @@ export const useUserEdit = (userId?: string) => {
   const [loading, setLoading] = useState<boolean>(true);
 
   const [user, setUser] = useState<null | IUser>(null);
+  const [loyalties, setLoyalties] = useState<ILoyaltyCard[]>([]);
   const [roleConfig, setRoleConfig] = useState(roleEditForm);
   const [userConfig, setUserConfig] = useState(userEditForm);
 
@@ -19,8 +21,11 @@ export const useUserEdit = (userId?: string) => {
       if (userId) {
         try {
           const { data: userData } = await api.company.getUserById(userId);
+          const { data: loylatyResponse } = await api.company.getUserLoyalty(userId);
           const { data: offices } = await api.company.getOffices();
           const { data: departments } = await api.company.getDepartments();
+
+          const loyaltiesData = loylatyResponse.data;
 
           setRoleConfig(prev => prev.map(item => {
             const newItem = item;
@@ -33,8 +38,6 @@ export const useUserEdit = (userId?: string) => {
             const newItem = item;
             // @ts-ignore
             newItem.value = userData[item.name] === null ? "" : userData[item.name].toString();
-
-            if (item.name === "sex") newItem.value = "other";
 
             if (item.name === "sex" && newItem.value === "other") {
               newItem.value = "unspecified";
@@ -57,6 +60,8 @@ export const useUserEdit = (userId?: string) => {
             return newItem;
           }));
 
+          console.log(loyaltiesData);
+          setLoyalties(loyaltiesData);
           setUser(userData);
 
           setLoading(false);
@@ -67,10 +72,28 @@ export const useUserEdit = (userId?: string) => {
     })();
   }, [userId]);
 
+  const getUser = async (userId: string) => {
+    const { data: userData } = await api.company.getUserById(userId);
+    setUser(userData);
+  };
+
+  const updateRole = async (userId: string, data: any) => {
+    await api.company.updateUserRole(userId, data);
+    await getUser(userId);
+  };
+
+  const updateUser = async (userId: string, data: any) => {
+    await api.company.updateUser(userId, data);
+    await getUser(userId);
+  };
+
   return {
     loading,
     user,
+    loyalties,
     roleConfig,
-    userConfig
+    userConfig,
+    updateRole,
+    updateUser
   };
 };

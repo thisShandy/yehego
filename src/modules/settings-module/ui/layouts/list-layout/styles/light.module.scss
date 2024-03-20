@@ -26,6 +26,10 @@
 
       .headerTitle {
         @include h3;
+
+        @include sm {
+          font-size: 1.8em;
+        }
       }
 
       .headerAction {

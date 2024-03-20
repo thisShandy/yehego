@@ -16,11 +16,19 @@
 
       .userInfo {
         @include h2;
+
+        @include sm {
+          font-size: 2em;
+        }
       }
 
       .userEmail {
         @include p(1.2em);
         color: $text_color_light;
+
+        @include sm {
+          font-size: 1em;
+        }
       }
     }
   }

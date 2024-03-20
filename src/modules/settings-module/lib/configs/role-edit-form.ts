@@ -7,7 +7,7 @@ export const roleEditForm: IFormItem[] = [
     required: true,
     group: null,
     type: "dropdown",
-    name: "sex",
+    name: "role",
     label: "Role",
     placeholder: "Guest",
     config: roles,
