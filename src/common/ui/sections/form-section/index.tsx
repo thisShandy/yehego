@@ -45,9 +45,11 @@ const FormSection: FC<IFormSection> = ({
                 key={form[0].group}
                 className={light.formGroup}
               >
-                <span className={light.groupTitle}>
-                  {form[0].group}
-                </span>
+                {form[0].group && (
+                  <span className={light.groupTitle}>
+                    {form[0].group}
+                  </span>
+                )}
                 <div className={light.groupContent}>
                   {form.map(item => {
                     if (item.type === "dropdown") {

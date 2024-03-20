@@ -6,6 +6,8 @@
 
   background: $background_color;
 
+  overflow-x: hidden;
+
   &.mainBackground {
     background: url("../../../../assets/images/background.png") no-repeat center top / cover;
   }

@@ -1,0 +1,53 @@
+@import "src/common/styles/index";
+
+.loyaltyContainer {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid $border_color_light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .loyaltyInfo {
+    @include flexColumnCenterLeft;
+    gap: 4px;
+
+    @include sm {
+      max-width: 196px;
+    }
+
+    .infoTitle {
+      @include p(1.125em);
+    }
+
+    .infoDescription {
+      @include p(.875em);
+      color: $text_color_light;
+    }
+  }
+
+  .loyaltyControl {
+    @include flexRowCenter;
+
+    .controlNumber {
+      width: 128px;
+
+      @include p(.938em);
+    }
+
+    .controlButton {
+      transform: rotate(45deg);
+
+      cursor: pointer;
+
+      .buttonTitle {
+        @include p(1.4em);
+        color: $text_color_light;
+      }
+    }
+  }
+}

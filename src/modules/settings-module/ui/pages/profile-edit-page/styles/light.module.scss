@@ -1,0 +1,12 @@
+@import "src/common/styles/index";
+
+.backWrapper {
+  @include flexRowCenter;
+  margin-top: 2rem;
+
+  .backContainer {
+    justify-content: flex-start;
+
+    width: 100%;
+  }
+}

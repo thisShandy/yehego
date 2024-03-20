@@ -70,6 +70,8 @@
 
       @include defaultTransition;
 
+      filter: invert(80%) sepia(69%) saturate(13%) hue-rotate(315deg) brightness(95%) contrast(90%);
+
       &.active {
         transform: rotate(0deg);
       }

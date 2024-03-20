@@ -1,0 +1,32 @@
+@import "src/common/styles/index";
+
+.userWrapper {
+  @include flexRowCenter;
+  margin-top: 2rem;
+
+  .userContainer {
+    @include flexColumnCenterLeft;
+    gap: 32px;
+
+    width: 100%;
+
+    .userInfo {
+      @include flexColumnCenterLeft;
+      gap: 4px;
+
+      .userInfo {
+        @include h2;
+      }
+
+      .userEmail {
+        @include p(1.2em);
+        color: $text_color_light;
+      }
+    }
+  }
+}
+
+.userSpace {
+  width: 100%;
+  height: 2rem;
+}

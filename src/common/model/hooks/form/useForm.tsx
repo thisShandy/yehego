@@ -2,6 +2,7 @@ import type { AxiosResponse } from "axios";
 import type { IFormItem } from "~/common/lib/types/form/form-item.type.ts";
 
 import { useEffect, useState } from "react";
+import { toast, Bounce } from "react-toastify";
 
 export const useForm = (formConfig: IFormItem[], submit: (data: any) => Promise<AxiosResponse<any, any>>) => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -43,6 +44,18 @@ export const useForm = (formConfig: IFormItem[], submit: (data: any) => Promise<
       await submit({
         ...values,
         george: 1
+      });
+
+      toast.success("Successfully updated", {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
       });
     } catch (e: any) {
       if (e.response.status === 422) {

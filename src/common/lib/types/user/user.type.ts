@@ -6,6 +6,7 @@ export interface IUser {
   uniq_id: string;
   phone: string;
   email: string;
+  role: string;
   office_id: string;
   department_id: string;
 }
