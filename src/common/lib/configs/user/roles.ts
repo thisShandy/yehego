@@ -12,5 +12,5 @@ export const roles: IDropdownOption[] = [
   {
     key: "company_admin",
     value: "Company admin",
-  },
+  }
 ];
