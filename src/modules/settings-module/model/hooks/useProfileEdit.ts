@@ -22,7 +22,7 @@ export const useProfileEdit = () => {
           setUserConfig(prev => prev.map(item => {
             const newItem = item;
             // @ts-ignore
-            newItem.value = user[item.name].toString();
+            newItem.value = user[item.name] === null ? "" : user[item.name].toString();
 
             if (item.name === "office_id") {
               newItem.config = offices.map(el => ({
