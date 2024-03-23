@@ -35,6 +35,7 @@ const CitySelect: FC<ICitySelect> = ({
       <span className={light.cityLabel}>{label}</span>
       <input
         id={inputTest}
+        value={selected!}
         placeholder="Select city"
         className={light.cityInput}
       />

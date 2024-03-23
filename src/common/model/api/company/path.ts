@@ -5,3 +5,4 @@ export const UPDATE_USER__PATH = "/companies/users";
 export const UPDATE_USER_ROLE__PATH = "/change-role";
 export const GET_USER_LOYALTY__PATH = "/user";
 export const GET_LOYALTY__PATH = "/loyalty-cards";
+export const UPDATE_COMPANY__PATH = "/company";
