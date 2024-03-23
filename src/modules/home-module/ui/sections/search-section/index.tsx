@@ -52,9 +52,9 @@ const SearchSection = () => {
       {type === searchTypes.trip && (
         <div className={`${light.searchContainer} ${typeClosing === searchTypes.trip && light.closing}`}>
           <div className={`${light.searchRow} ${light.top}`}>
-            <CitySelect open={true} label="From" selected={null} />
+            <CitySelect testId="outward_city" label="From" selected={null} />
             <div className={light.searchDivider} />
-            <CitySelect open={false} label="From" selected={null} />
+            <CitySelect testId="return_city" label="From" selected={null} />
             <DatePicker
               type={searchTypes.trip}
               oneway={tripForm.oneway}

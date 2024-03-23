@@ -27,76 +27,61 @@
     opacity: .65;
   }
 
+  .cityInput {
+    width: 100%;
+    height: 16px;
+
+    @include p(1em);
+
+    &::placeholder {
+      color: $text_color;
+      opacity: .65;
+    }
+  }
+
   .citySearch {
-    @include flexColumnTopLeft;
-
     position: absolute;
-    left: calc(50% - 150px);
-    top: 56px;
+    left: calc(50% - 104px);
+    top: 64px;
 
-    width: 300px;
-    min-height: 360px;
-    padding: 1.25rem 1rem;
+    width: 208px;
 
-    border-radius: 24px;
+    border-radius: 12px;
     border: 1px solid $border_color;
     background-color: $background_color;
 
-    .searchInput {
-      @include flexRowSpace;
+    .searchContent {
+      @include flexColumnTopLeft;
 
       width: 100%;
-      height: 40px;
-      padding: 0 .75rem;
-      margin-bottom: .5rem;
+      min-height: 256px;
 
-      border-radius: 8px;
-      border: 1px solid $border_color;
+      overflow-x: hidden;
 
-      .inputField {
-        @include p(1rem);
+      .searchItem {
+        @include flexRowCenterLeft;
+        gap: 6px;
 
-        &::placeholder {
-          opacity: .75;
-        }
-      }
+        width: 100%;
+        height: 48px;
+        padding: 0 .5rem;
 
-      .inputClear {
-        @include flexRowCenter;
-
-        height: 100%;
+        border-radius: 6px;
 
         cursor: pointer;
+        @include defaultTransition;
 
-        .clearTitle {
-          @include p(.875em, $text_color_light);
+        &:hover {
+          background-color: rgba(255, 212, 100, 0.5);
         }
-      }
-    }
 
-    .searchItem {
-      @include flexRowCenterLeft;
-      gap: 6px;
+        img {
+          border-radius: 2px;
+        }
 
-      width: 100%;
-      height: 48px;
-      padding: 0 .5rem;
-
-      border-radius: 6px;
-
-      cursor: pointer;
-      @include defaultTransition;
-
-      &:hover {
-        background-color: rgba(255, 212, 100, 0.5);
-      }
-
-      img {
-        border-radius: 2px;
-      }
-
-      .itemTitle {
-        @include p(1.2em);
+        .itemTitle {
+          @include p(1.2em);
+        }
       }
     }
   }

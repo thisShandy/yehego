@@ -123,6 +123,7 @@
 
         .accordionIcon {
           transform: rotate(180deg);
+          filter: invert(94%) sepia(6%) saturate(125%) hue-rotate(314deg) brightness(90%) contrast(95%);
 
           @include defaultTransition;
           transition-duration: .2s;

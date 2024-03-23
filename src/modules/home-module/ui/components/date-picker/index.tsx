@@ -42,7 +42,6 @@ const DatePicker: FC<IDatePicker> = ({
     handleDateOpen();
   };
 
-
   const onChange = (rangesByKey: RangeKeyDict) => {
     handleSelect(rangesByKey);
     if (!changed) setChanged(true);
