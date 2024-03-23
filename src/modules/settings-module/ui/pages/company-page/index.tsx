@@ -88,7 +88,12 @@ const CompanyPage = () => {
               ]}
             />
           </div>
-          <ListLayout title="Credit Cards" handleAdd={() => console.log("add")}>
+          <ListLayout
+            title="Credit Cards"
+            empty={!cards.length}
+            handleAdd={() => console.log("add")}
+            emptyTitle="There aren't any credit cards"
+          >
             {!cardsLoading && cards.map(item => (
               <Card
                 key={item.id}
@@ -97,7 +102,12 @@ const CompanyPage = () => {
               />
             ))}
           </ListLayout>
-          <ListLayout title="Offices" handleAdd={() => console.log("add")}>
+          <ListLayout
+            title="Offices"
+            empty={!offices.length}
+            handleAdd={() => console.log("add")}
+            emptyTitle="There aren't any offices"
+          >
             {!officesLoading && offices.map(item => (
               <Group
                 key={item.id}
@@ -105,13 +115,25 @@ const CompanyPage = () => {
               />
             ))}
           </ListLayout>
-          <ListLayout title="Departments" handleAdd={() => console.log("add")}>
+          <ListLayout
+            title="Departments"
+            empty={!departments.length}
+            handleAdd={() => console.log("add")}
+            emptyTitle="There aren't any departments"
+          >
             {!departmentsLoading && departments.map(item => (
               <Group
                 key={item.id}
                 name={item.name}
               />
             ))}
+          </ListLayout>
+          <ListLayout
+            title="Service Providers"
+            empty={true}
+            handleAdd={() => console.log("add")}
+            emptyTitle="There aren't any service providers"
+          >
           </ListLayout>
         </div>
       </div>

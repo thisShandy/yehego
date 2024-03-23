@@ -5,10 +5,12 @@ import light from "./styles/light.module.scss";
 interface IListLayout {
   title: string;
   handleAdd: () => void;
+  empty: boolean;
+  emptyTitle: string;
 }
 
 const ListLayout: FC<PropsWithChildren<IListLayout>> = ({
-  children, title, handleAdd
+  children, title, handleAdd, empty, emptyTitle
 }) => {
   return (
     <div className={light.listWrapper}>
@@ -28,7 +30,12 @@ const ListLayout: FC<PropsWithChildren<IListLayout>> = ({
           </button>
         </div>
         <div className={light.listContent}>
-          {children}
+          {!empty && children}
+          {empty && (
+            <span className={light.contentEmpty}>
+              {emptyTitle}
+            </span>
+          )}
         </div>
       </div>
     </div>

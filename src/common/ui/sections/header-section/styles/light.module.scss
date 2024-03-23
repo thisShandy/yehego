@@ -41,10 +41,6 @@
 
       .logoTitle {
         @include h5;
-
-        @include md {
-          display: none;
-        }
       }
     }
 
@@ -52,6 +48,10 @@
       flex: 3;
       @include flexRowCenter;
       gap: clamp(16px, 100%, 24px);
+
+      @include md {
+        display: none;
+      }
 
       .mainNavigation {
         width: 108px;
