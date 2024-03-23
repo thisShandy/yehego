@@ -9,27 +9,5 @@
     gap: 32px;
 
     width: 100%;
-
-    .companyInfo {
-      @include flexColumnCenterLeft;
-      gap: 4px;
-
-      .companyInfo {
-        @include h2;
-
-        @include sm {
-          font-size: 2em;
-        }
-      }
-
-      .companyEmail {
-        @include p(1.2em);
-        color: $text_color_light;
-
-        @include sm {
-          font-size: 1em;
-        }
-      }
-    }
   }
 }

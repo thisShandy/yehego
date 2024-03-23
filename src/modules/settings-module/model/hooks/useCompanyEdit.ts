@@ -40,7 +40,7 @@ export const useCompanyEdit = () => {
   const getUser = async () => {
     const { data: userData } = await api.user.getUser();
     setUser(userData);
-  }
+  };
 
   const handleUpdate = async (data: any) => {
     await api.company.updateCompany(user!.company.uuid, data);

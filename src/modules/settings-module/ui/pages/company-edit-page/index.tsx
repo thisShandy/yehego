@@ -1,4 +1,4 @@
-import { useRecoilValue } from "recoil";
+import { useNavigate } from "react-router-dom";
 
 import { useCompanyEdit } from "~/modules/settings-module/model/hooks/useCompanyEdit.ts";
 
@@ -6,12 +6,10 @@ import MainLayout from "~/common/ui/layouts/main-layout";
 import FormSection from "~/common/ui/sections/form-section";
 import BackUi from "~/common/ui/kit/back-ui";
 
-import { userState } from "~/common/model/recoil/user.ts";
-
 import light from "./styles/light.module.scss";
 
 const CompanyEditPage = () => {
-  const user = useRecoilValue(userState);
+  const navigate = useNavigate();
   const {
     loading,
     companyConfig,
@@ -25,16 +23,8 @@ const CompanyEditPage = () => {
       <div className={light.companyWrapper}>
         <div className={`container ${light.companyContainer}`}>
           <BackUi
-            handleClick={() => window.location = "https://app-staging.yehego.com/admin" as unknown as Location}
+            handleClick={() => navigate("/admin")}
           />
-          <div className={light.companyInfo}>
-            <span className={light.companyInfo}>
-              {user?.company.name}
-            </span>
-            <span className={light.companyEmail}>
-              {user?.company.tax_id}
-            </span>
-          </div>
         </div>
       </div>
       <FormSection

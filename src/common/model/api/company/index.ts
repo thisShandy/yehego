@@ -14,4 +14,4 @@ export const company = {
   updateUserRole,
   getUserLoyalty,
   updateCompany
-}
+};

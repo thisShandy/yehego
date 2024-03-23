@@ -1,0 +1,74 @@
+@import "src/common/styles/index";
+
+.companyWrapper {
+  @include flexRowCenter;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  .companyContainer {
+    @include flexColumnCenterLeft;
+    gap: 32px;
+
+    width: 100%;
+
+    .companyHeader {
+      @include flexRowSpace;
+
+      width: 100%;
+
+      @include sm {
+        @include flexColumnCenterLeft;
+        gap: 24px;
+      }
+
+      .headerInfo {
+        @include flexColumnCenterLeft;
+        gap: 4px;
+
+        .infoTitle {
+          @include h2;
+
+          @include sm {
+            font-size: 2em;
+          }
+        }
+
+        .infoTax {
+          @include p(1.2em);
+          color: $text_color_light;
+
+          @include sm {
+            font-size: 1em;
+          }
+        }
+      }
+
+      .headerUsers {
+        @include flexRowCenter;
+        gap: 12px;
+
+        width: 100%;
+        max-width: 208px;
+
+        @include sm {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .companyContent {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 32px;
+      grid-row-gap: 24px;
+
+      width: 100%;
+
+      @include sm {
+        @include flexColumnCenterLeft;
+        gap: 24px;
+      }
+    }
+  }
+}

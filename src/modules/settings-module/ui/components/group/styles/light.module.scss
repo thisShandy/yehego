@@ -1,0 +1,29 @@
+@import "src/common/styles/index";
+
+.groupContainer {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid $border_color_light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .groupName {
+    @include p(1.125em);
+  }
+
+  .groupButton {
+    transform: rotate(45deg);
+
+    cursor: pointer;
+
+    .buttonTitle {
+      @include p(1.4em);
+      color: $text_color_light;
+    }
+  }
+}

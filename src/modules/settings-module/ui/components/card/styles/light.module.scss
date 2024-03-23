@@ -1,0 +1,48 @@
+@import "src/common/styles/index";
+
+.cardContainer {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding-bottom: 1rem;
+
+  border-bottom: 1px solid $border_color_light;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .cardNumber {
+    @include flexRowCenter;
+    gap: 4px;
+
+    .numberShow {
+      @include p(1.125em);
+    }
+
+    .numberHide {
+      @include p(.9em);
+    }
+  }
+
+  .cardControl {
+    @include flexRowCenter;
+
+    .controlHolder {
+      width: 128px;
+
+      @include p(1em);
+    }
+
+    .controlButton {
+      transform: rotate(45deg);
+
+      cursor: pointer;
+
+      .buttonTitle {
+        @include p(1.4em);
+        color: $text_color_light;
+      }
+    }
+  }
+}

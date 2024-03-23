@@ -1,0 +1,42 @@
+@import "src/common/styles/index";
+
+.infoContainer {
+  @include flexColumnCenterLeft;
+  gap: 24px;
+
+  width: 100%;
+  padding: 1.5rem;
+
+  border-radius: 12px;
+  border: 1px solid $border_color;
+
+  .infoTitle {
+    @include h5;
+
+    @include sm {
+      font-size: 1.2em;
+    }
+  }
+
+  .infoContent {
+    @include flexColumnCenterLeft;
+    gap: 12px;
+
+    width: 100%;
+
+    .contentItem {
+      @include flexRowSpace;
+
+      width: 100%;
+
+      .itemTitle {
+        @include p(1em);
+        color: $text_color_light;
+      }
+
+      .itemValue {
+        @include p(1em);
+      }
+    }
+  }
+}

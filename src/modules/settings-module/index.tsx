@@ -2,6 +2,7 @@ import type { RouteObject } from "react-router-dom";
 
 import ProfileEditPage from "~/modules/settings-module/ui/pages/profile-edit-page";
 import UserEditPage from "~/modules/settings-module/ui/pages/user-edit-page";
+import CompanyPage from "~/modules/settings-module/ui/pages/company-page";
 import CompanyEditPage from "~/modules/settings-module/ui/pages/company-edit-page";
 
 const settingsModule: RouteObject[] = [
@@ -14,7 +15,11 @@ const settingsModule: RouteObject[] = [
     element: <UserEditPage />
   },
   {
-    path: "admin/edit",
+    path: "/admin",
+    element: <CompanyPage />
+  },
+  {
+    path: "/admin/edit",
     element: <CompanyEditPage />
   }
 ];
