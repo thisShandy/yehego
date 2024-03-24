@@ -55,6 +55,13 @@
   justify-content: center;
 }
 
+@mixin flexColumnCenterRight() {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+}
+
 @mixin flexColumnTopLeft() {
   display: flex;
   flex-direction: column;

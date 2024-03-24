@@ -21,6 +21,10 @@
     background-color: $main_color_hover;
   }
 
+  @include sm {
+    height: 48px;
+  }
+
   .buttonTitle {
     @include p(1.15em);
   }
