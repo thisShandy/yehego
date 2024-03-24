@@ -1,0 +1,13 @@
+@import "src/common/styles/index";
+
+.containerWrapper {
+  @include flexRowCenter;
+
+  width: 100%;
+
+  .container {
+    @include flexColumnCenterLeft;
+
+    width: 100%;
+  }
+}

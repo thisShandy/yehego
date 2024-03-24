@@ -17,29 +17,49 @@
 
       width: 100%;
 
-      @include sm {
+      @include md {
         @include flexColumnCenterLeft;
         gap: 24px;
       }
 
       .headerInfo {
-        @include flexColumnCenterLeft;
-        gap: 4px;
+        @include flexRowSpace;
+        width: 100%;
 
-        .infoTitle {
-          @include h2;
+        .infoContainer {
+          @include flexColumnCenterLeft;
+          gap: 4px;
 
-          @include sm {
-            font-size: 2em;
+          .infoTitle {
+            @include h2;
+
+            @include sm {
+              font-size: 2em;
+            }
+          }
+
+          .infoTax {
+            @include p(1.2em);
+            color: $text_color_light;
+
+            @include sm {
+              font-size: 1em;
+            }
           }
         }
 
-        .infoTax {
-          @include p(1.2em);
-          color: $text_color_light;
+        .infoEdit {
+          display: none;
+          min-width: 56px;
+          width: 56px;
 
-          @include sm {
-            font-size: 1em;
+          @include md {
+            display: block;
+          }
+
+          .editIcon {
+            width: 20px;
+            height: 20px;
           }
         }
       }
@@ -49,10 +69,28 @@
         gap: 12px;
 
         width: 100%;
-        max-width: 208px;
+        max-width: 296px;
 
-        @include sm {
+        @include md {
           max-width: 100%;
+        }
+
+        .usersManage {
+          width: 100%;
+        }
+
+        .usersEdit {
+          min-width: 56px;
+          width: 56px;
+
+          @include md {
+            display: none;
+          }
+
+          .editIcon {
+            width: 20px;
+            height: 20px;
+          }
         }
       }
     }
@@ -69,6 +107,49 @@
         @include flexColumnCenterLeft;
         gap: 24px;
       }
+    }
+  }
+}
+
+.skeletonHeader {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  .headerContent {
+    @include flexColumnCenterLeft;
+    gap: 6px;
+  }
+}
+
+.skeletonContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 24px;
+
+  width: 100%;
+
+  @include sm {
+    @include flexColumnCenterLeft;
+    gap: 24px;
+  }
+
+  .contentItem {
+    @include flexColumnCenterLeft;
+    gap: 24px;
+
+    width: 100%;
+    padding: 1.5rem;
+
+    border-radius: 12px;
+    border: 1px solid $border_color;
+
+    .itemData {
+      width: 100%;
+
+      @include flexRowSpace;
     }
   }
 }

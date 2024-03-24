@@ -20,8 +20,10 @@ import InfoSection from "~/modules/settings-module/ui/sections/info-section";
 import Card from "~/modules/settings-module/ui/components/card";
 import Group from "~/modules/settings-module/ui/components/group";
 import ButtonUi from "~/common/ui/kit/button-ui";
+import Skeleton from "~/modules/settings-module/ui/pages/company-page/skeleton.tsx";
 
 import light from "./styles/light.module.scss";
+import edit from "~icons/control/edit.svg";
 
 const CompanyPage = () => {
   const navigate = useNavigate();
@@ -46,24 +48,44 @@ const CompanyPage = () => {
     data: departments
   } = useFetch<IDepartment[]>(DEPARTMENTS__PATH, []);
 
+  if (deleteCardLoading || cardsLoading || officesLoading || departmentsLoading) return <Skeleton />;
+
   return (
     <MainLayout>
       <div className={light.companyWrapper}>
         <div className={`container ${light.companyContainer}`}>
           <div className={light.companyHeader}>
             <div className={light.headerInfo}>
-              <span className={light.infoTitle}>
-                {user?.company.name}
-              </span>
-              <span className={light.infoTax}>
-                {user?.company.tax_id}
-              </span>
+              <div className={light.infoContainer}>
+                <span className={light.infoTitle}>
+                  {user?.company.name}
+                </span>
+                <span className={light.infoTax}>
+                  {user?.company.tax_id}
+                </span>
+              </div>
+              <div className={light.infoEdit}>
+                <ButtonUi
+                  onClick={() => navigate("/admin/edit")}
+                >
+                  <img className={light.editIcon} src={edit} alt="edit"/>
+                </ButtonUi>
+              </div>
             </div>
             <div className={light.headerUsers}>
-              <ButtonUi
-                label="Edit"
-                onClick={() => navigate("/admin/edit")}
-              />
+              <div className={light.usersManage}>
+                <ButtonUi
+                  label="Manage users"
+                  onClick={() => navigate("/admin/edit")}
+                />
+              </div>
+              <div className={light.usersEdit}>
+                <ButtonUi
+                  onClick={() => navigate("/admin/edit")}
+                >
+                  <img className={light.editIcon} src={edit} alt="edit"/>
+                </ButtonUi>
+              </div>
             </div>
           </div>
           <div className={light.companyContent}>

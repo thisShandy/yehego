@@ -8,9 +8,6 @@
   background-color: rgba(255, 255, 255, .5);
   backdrop-filter: blur(2rem);
 
-  @include fadeIn;
-  animation-duration: .4s;
-
   .headerContainer {
     @include flexRowSpace;
 

@@ -8,6 +8,9 @@
 
   overflow-x: hidden;
 
+  @include fadeIn;
+  animation-duration: .2s;
+
   &.mainBackground {
     background: url("../../../../assets/images/background.png") no-repeat center top / cover;
   }
