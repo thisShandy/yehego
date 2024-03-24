@@ -1,10 +1,9 @@
 import type { FC } from "react";
 
-import { PatternFormat } from "react-number-format";
-
 import { cardTypes } from "~/common/lib/configs/system/card-types.ts";
 
 import InputUi from "~/common/ui/kit/input-ui";
+import InputFormatUi from "~/common/ui/kit/input-format-ui";
 import DropdownUi from "~/common/ui/kit/dropdown-ui";
 
 import light from "./styles/light.module.scss";
@@ -32,36 +31,28 @@ const CardFormSection: FC<ICardFormSection> = ({
 }) => {
   return (
     <div className={light.cardForm}>
-      <div className={`${light.cardInput} ${errors.number && light.error}`}>
-        <span className={light.inputName}>
-          {errors.number || "Card number"}
-        </span>
-        <PatternFormat
-          value={form.number}
-          format="#### #### #### ####"
-          allowEmptyFormatting
-          mask="X"
-          onChange={(event) => {
-            const value = event.target.value;
-            handleUpdate("number", value);
-          }}
-        />
-      </div>
-      <div className={`${light.cardInput} ${errors.expiration && light.error}`}>
-        <span className={light.inputName}>
-          {errors.expiration || "Expiration date"}
-        </span>
-        <PatternFormat
-          value={form.expiration}
-          format="##/##"
-          allowEmptyFormatting
-          mask="X"
-          onChange={(event) => {
-            const value = event.target.value;
-            handleUpdate("expiration", value);
-          }}
-        />
-      </div>
+      <InputFormatUi
+        value={form.number}
+        format="#### #### #### ####"
+        mask="X"
+        error={errors.number}
+        placeholder="Card number"
+        handleChange={(event) => {
+          const value = event.target.value;
+          handleUpdate("number", value);
+        }}
+      />
+      <InputFormatUi
+        value={form.expiration}
+        format="##/##"
+        mask="X"
+        error={errors.expiration}
+        placeholder="Expiration date"
+        handleChange={(event) => {
+          const value = event.target.value;
+          handleUpdate("expiration", value);
+        }}
+      />
       <InputUi
         type="text"
         name="Cardholder"

@@ -3,12 +3,14 @@ import type { FC } from "react";
 import light from "./styles/light.module.scss";
 
 interface ICard {
+  id: string;
   number: string;
   holder: string;
+  handleDelete: (cardId: string) => void;
 }
 
 const Card: FC<ICard> = ({
-  number, holder,
+  id, number, holder, handleDelete
 }) => {
   return (
     <div className={light.cardContainer}>
@@ -33,6 +35,7 @@ const Card: FC<ICard> = ({
         <button
           type="button"
           className={light.controlButton}
+          onClick={() => handleDelete(id)}
         >
           <span
             className={light.buttonTitle}

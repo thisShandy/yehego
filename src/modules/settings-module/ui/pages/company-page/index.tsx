@@ -4,8 +4,10 @@ import type { IDepartment } from "~/common/lib/types/company/department.type.ts"
 
 import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
+import { parsePhoneNumber } from "libphonenumber-js";
 
 import { useFetch} from "~/common/model/hooks/helpers/useFetch.ts";
+import { useCompanyCard } from "~/common/model/hooks/cards/useCompanyCard.ts";
 
 import { userState } from "~/common/model/recoil/user.ts";
 
@@ -20,16 +22,19 @@ import Group from "~/modules/settings-module/ui/components/group";
 import ButtonUi from "~/common/ui/kit/button-ui";
 
 import light from "./styles/light.module.scss";
-import {parsePhoneNumber} from "libphonenumber-js";
 
 const CompanyPage = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
 
   const {
+    loading: deleteCardLoading,
+    handleDeleteCard
+  } = useCompanyCard();
+  const {
     loading: cardsLoading,
     data: cards,
-  } = useFetch<ICard[]>(COMPANY_CARD__PATH, []);
+  } = useFetch<ICard[]>(COMPANY_CARD__PATH, [], [deleteCardLoading]);
 
   const {
     loading: officesLoading,
@@ -98,8 +103,10 @@ const CompanyPage = () => {
             {!cardsLoading && cards.map(item => (
               <Card
                 key={item.id}
+                id={item.id}
                 number={item.maskedNumber}
                 holder={`${item.name} ${item.lastName}`}
+                handleDelete={handleDeleteCard}
               />
             ))}
           </ListLayout>
