@@ -1,0 +1,48 @@
+@import "src/common/styles/index";
+
+.cardWrapper {
+  @include flexRowCenter;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  .cardContainer {
+    @include flexColumnCenterLeft;
+
+    width: 100%;
+
+    .cardTitle {
+      @include h3;
+      margin-top: 2rem;
+      margin-bottom: 3rem;
+
+      @include sm {
+        font-size: 1.8em;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .cardForm {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 32px;
+      grid-row-gap: 24px;
+
+      width: 100%;
+      margin-bottom: 1.5rem;
+
+      @include md {
+        @include flexRowCenter;
+      }
+    }
+
+    .cardSubmit {
+      max-width: 256px;
+      width: 100%;
+
+      @include md {
+        max-width: 100%;
+      }
+    }
+  }
+}

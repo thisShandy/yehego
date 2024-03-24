@@ -119,6 +119,7 @@
 
       .itemTitle {
         @include p(1em);
+        text-align: left;
       }
     }
   }

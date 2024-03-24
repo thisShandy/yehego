@@ -20,6 +20,7 @@ import Group from "~/modules/settings-module/ui/components/group";
 import ButtonUi from "~/common/ui/kit/button-ui";
 
 import light from "./styles/light.module.scss";
+import {parsePhoneNumber} from "libphonenumber-js";
 
 const CompanyPage = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const CompanyPage = () => {
                 { name: "Company Name", value: user?.company.name || "-" },
                 { name: "Contact Person", value: user?.company.contact_person || "-" },
                 { name: "Email", value: user?.company.email || "-" },
-                { name: "Phone", value: user?.company.contact_phone || "-" }
+                { name: "Phone", value: user?.company.contact_phone ? parsePhoneNumber(`+${user.company.contact_phone}`).formatInternational() : "-" }
               ]}
             />
             <InfoSection
@@ -91,7 +92,7 @@ const CompanyPage = () => {
           <ListLayout
             title="Credit Cards"
             empty={!cards.length}
-            handleAdd={() => console.log("add")}
+            handleAdd={() => navigate("/admin/card")}
             emptyTitle="There aren't any credit cards"
           >
             {!cardsLoading && cards.map(item => (

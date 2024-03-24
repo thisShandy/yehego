@@ -1,0 +1,74 @@
+@import "src/common/styles/index";
+
+.cardForm {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  grid-template-areas: ". .";
+
+  width: 100%;
+
+  @include sm {
+    @include flexColumnCenterLeft;
+  }
+
+  .cardInput {
+    @include flexRowSpace;
+
+    position: relative;
+
+    width: 100%;
+    height: 56px;
+    padding: .75rem 1.25rem;
+
+    border-radius: 10px;
+    border: 1px solid $border_color;
+
+    @include defaultTransition;
+
+    &.error {
+      border-color: $red_color;
+      background-color: $red_color_hover;
+
+      .inputName {
+        color: $red_color;
+        background-color: $red_color_hover;
+      }
+    }
+
+    &:hover {
+      border-color: $main_color;
+      background-color: $main_color_hover;
+
+      .inputName {
+        color: $main_color;
+        background-color: $main_color_hover;
+      }
+    }
+
+    .inputName {
+      position: absolute;
+      top: -6px;
+
+      padding: .1rem .5rem;
+
+      @include p(.8em, $text_color_light);
+
+      border-radius: 4px;
+      background-color: $background_color;
+
+      @include defaultTransition;
+    }
+
+    input {
+      width: 100%;
+
+      @include p(.938em);
+
+      &::placeholder {
+        opacity: .5;
+      }
+    }
+  }
+}
