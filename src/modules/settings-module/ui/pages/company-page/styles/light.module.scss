@@ -113,13 +113,27 @@
 
 .skeletonHeader {
   @include flexRowSpace;
+  gap: 24px;
 
   width: 100%;
   padding: 2rem 0;
 
+  @include sm {
+    @include flexColumnCenterLeft;
+  }
+
   .headerContent {
     @include flexColumnCenterLeft;
     gap: 6px;
+  }
+
+  .headerButton {
+    width: 100%;
+    max-width: 208px;
+
+    @include sm {
+      max-width: 100%;
+    }
   }
 }
 
@@ -150,6 +164,51 @@
       width: 100%;
 
       @include flexRowSpace;
+    }
+  }
+}
+
+.skeletonAddition {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 24px;
+
+  width: 100%;
+  margin-bottom: 2rem;
+
+  @include md {
+    @include flexColumnCenterLeft;
+  }
+
+  .additionItem {
+    @include flexColumnCenterLeft;
+    gap: 24px;
+
+    width: 100%;
+    margin-top: 2rem;
+
+    &.second {
+      grid-area: 2 / 1 / 3 / 2;
+    }
+
+    .itemHeader {
+      @include flexRowSpace;
+
+      width: 100%;
+    }
+
+    .itemContent {
+      @include flexRowSpace;
+
+      width: 100%;
+
+      .contentControl {
+        @include flexRowSpace;
+
+        max-width: 196px;
+        width: 100%;
+      }
     }
   }
 }

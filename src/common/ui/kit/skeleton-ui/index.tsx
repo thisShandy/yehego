@@ -3,7 +3,7 @@ import type { FC } from "react";
 import light from "./styles/light.module.scss";
 
 interface ISkeletonUi {
-  width: number;
+  width: number | string;
   height: number;
   borderRadius?: number;
 }

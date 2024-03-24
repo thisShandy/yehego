@@ -10,10 +10,12 @@ const Skeleton = () => {
       <ContainerLayout>
         <div className={light.skeletonHeader}>
           <div className={light.headerContent}>
-            <SkeletonUi width={420} height={40} />
-            <SkeletonUi width={300} height={20} borderRadius={6} />
+            <SkeletonUi width={320} height={40} />
+            <SkeletonUi width={240} height={20} borderRadius={6} />
           </div>
-          <SkeletonUi width={208} height={56} />
+          <div className={light.headerButton}>
+            <SkeletonUi width="100%" height={56} />
+          </div>
         </div>
         <div className={light.skeletonContent}>
           <div className={light.contentItem}>
@@ -67,6 +69,34 @@ const Skeleton = () => {
             <div className={light.itemData}>
               <SkeletonUi width={92} height={16} borderRadius={6} />
               <SkeletonUi width={128} height={16} borderRadius={6} />
+            </div>
+          </div>
+        </div>
+        <div className={light.skeletonAddition}>
+          <div className={light.additionItem}>
+            <div className={light.itemHeader}>
+              <SkeletonUi width={204} height={32} borderRadius={6}/>
+              <SkeletonUi width={40} height={40} borderRadius={6}/>
+            </div>
+            <div className={light.itemContent}>
+              <SkeletonUi width={150} height={18} borderRadius={6}/>
+              <div className={light.contentControl}>
+                <SkeletonUi width={140} height={16} borderRadius={6}/>
+                <SkeletonUi width={20} height={20} borderRadius={6}/>
+              </div>
+            </div>
+          </div>
+          <div className={`${light.additionItem} ${light.second}`}>
+            <div className={light.itemHeader}>
+              <SkeletonUi width={204} height={32} borderRadius={6}/>
+              <SkeletonUi width={40} height={40} borderRadius={6}/>
+            </div>
+            <div className={light.itemContent}>
+              <SkeletonUi width={150} height={18} borderRadius={6}/>
+              <div className={light.contentControl}>
+                <SkeletonUi width={140} height={16} borderRadius={6}/>
+                <SkeletonUi width={20} height={20} borderRadius={6}/>
+              </div>
             </div>
           </div>
         </div>
