@@ -1,0 +1,45 @@
+@import "src/common/styles/index";
+
+.usersHeader {
+  @include flexColumnCenterLeft;
+  gap: 32px;
+
+  margin-top: 2rem;
+
+  .headerTitle {
+    @include h2;
+  }
+}
+
+.usersAdd {
+  @include flexColumnCenterLeft;
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 3rem;
+
+  .addTitle {
+    @include h4;
+  }
+
+  .addControl {
+    @include flexRowCenterLeft;
+    gap: 16px;
+
+    width: 100%;
+
+    button {
+      max-width: 196px;
+      width: 100%;
+
+      .controlAdd {
+        @include p(1.1em);
+        margin-right: .5rem;
+      }
+
+      .controlTitle {
+        @include p(1em);
+      }
+    }
+  }
+}

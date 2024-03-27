@@ -67,6 +67,13 @@ export const useCreditCard = (submit: (data: any) => Promise<AxiosResponse<any, 
         theme: "light",
         transition: Bounce,
       });
+
+      setForm({
+        number: "",
+        type: "",
+        expiration: "",
+        cardholder: "",
+      });
     } catch (e: any) {
       if (e.response.status === 422) {
         setErrors(prev => ({

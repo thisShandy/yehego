@@ -1,0 +1,183 @@
+@import "src/common/styles/index";
+
+.usersWrapper {
+  @include flexColumnCenterRight;
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  border-radius: 12px;
+  border: 1px solid $border_color;
+
+  .usersContainer {
+    width: 100%;
+
+    .usersHeader {
+      display: grid;
+      grid-template-columns: 1.5fr 2.5fr 1.2fr .75fr 1fr;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+
+      width: 100%;
+      padding: 1.5rem 1.5rem 1rem 1.5rem;
+
+      // border-bottom: 1px solid $border_color;
+
+      .headerTitle {
+        @include p(1em);
+        color: $text_color_light;
+      }
+    }
+
+    .usersItem {
+      display: grid;
+      grid-template-columns: 1.5fr 2.5fr 1.2fr .75fr 1fr;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      align-items: center;
+
+      width: 100%;
+      height: 68px;
+      padding: 1rem 1.5rem;
+
+      cursor: pointer;
+      @include defaultTransition;
+
+      &:hover {
+        background-color: $main_color_hover;
+      }
+
+      .itemTitle {
+        @include p(1em);
+        text-align: left;
+
+        &.grey {
+          color: $text_color_light;
+        }
+      }
+
+      .itemActions {
+        @include flexRowCenterRight;
+        gap: 16px;
+
+        .actionsStatus {
+          width: 108px;
+          height: 36px;
+
+          border-radius: 8px;
+          border: 1px solid $green_color;
+          background-color: $green_color;
+
+          cursor: pointer;
+          @include defaultTransition;
+
+          &:hover {
+            background-color: $green_color_hover;
+
+            .statusTitle {
+              color: $green_color;
+            }
+          }
+
+          &.red {
+            border: 1px solid $red_color;
+            background-color: $red_color;
+
+            &:hover {
+              background-color: $red_color_hover;
+
+              .statusTitle {
+                color: $red_color;
+              }
+            }
+          }
+
+          .statusTitle {
+            @include p(.9em);
+            color: $background_color;
+          }
+        }
+
+        .actionsDelete {
+          cursor: pointer;
+
+          transform: rotate(45deg);
+
+          .deleteTitle {
+            @include p(1.4em);
+            color: $text_color_light;
+          }
+        }
+      }
+    }
+  }
+
+  .usersPagination {
+    @include flexRowCenter;
+    gap: 6px;
+
+    padding: 0 1.5rem 1.5rem 1.5rem;
+
+    .paginationButton {
+      width: 28px;
+      height: 28px;
+
+      border-radius: 4px;
+      border: 1px solid $main_color;
+      background-color: $main_color_hover;
+
+      cursor: pointer;
+      @include defaultTransition;
+
+      &.active {
+        background-color: $main_color;
+      }
+
+      .buttonTitle {
+        @include p(.9em);
+      }
+    }
+  }
+}
+
+.usersSkeleton {
+  @include flexColumnCenterRight;
+  gap: 16px;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  border-radius: 12px;
+  border: 1px solid $border_color;
+
+  .usersGrid {
+    @include flexColumnCenterLeft;
+
+    width: 100%;
+
+    .gridRow {
+      display: grid;
+      grid-template-columns: 1.5fr 2.5fr 1.2fr .75fr 1fr;
+      grid-column-gap: 0;
+      grid-row-gap: 0;
+      align-items: center;
+
+      width: 100%;
+      height: 68px;
+      padding: 1rem 1.5rem;
+
+      .rowControl {
+        @include flexRowCenterRight;
+        gap: 16px;
+      }
+    }
+  }
+
+  .usersPagination {
+    @include flexRowCenter;
+    gap: 6px;
+
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+}

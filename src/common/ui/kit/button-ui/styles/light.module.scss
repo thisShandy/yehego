@@ -21,6 +21,10 @@
     background-color: $main_color_hover;
   }
 
+  &.medium {
+    height: 48px;
+  }
+
   @include sm {
     height: 48px;
   }

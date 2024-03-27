@@ -76,7 +76,7 @@ const CompanyPage = () => {
               <div className={light.usersManage}>
                 <ButtonUi
                   label="Manage users"
-                  onClick={() => navigate("/admin/edit")}
+                  onClick={() => navigate("/admin/users")}
                 />
               </div>
               <div className={light.usersEdit}>

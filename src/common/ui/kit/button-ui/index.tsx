@@ -7,11 +7,13 @@ interface IButtonUi extends ITest {
   loading?: boolean;
   disabled?: boolean;
   label?: string;
+  size?: "big" | "medium";
   onClick: () => void;
 }
 
 const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({
-  children, testId, loading, disabled, label, onClick
+  children, testId, loading, disabled,
+  label, size = "big", onClick
 }) => {
   return (
     <button
@@ -19,7 +21,7 @@ const ButtonUi: FC<PropsWithChildren<IButtonUi>> = ({
       data-testid={testId}
       disabled={disabled}
       onClick={onClick}
-      className={light.buttonContainer}
+      className={`${light.buttonContainer} ${light[size]}`}
     >
       {label && !loading && <span className={light.buttonTitle}>{label}</span>}
       {loading && <span className={light.buttonTitle}>Loading...</span>}

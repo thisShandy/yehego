@@ -11,5 +11,6 @@ export interface IUser {
   role: string;
   office_id: string;
   department_id: string;
+  status: string;
   company: ICompany;
 }
