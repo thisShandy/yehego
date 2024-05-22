@@ -1,0 +1,59 @@
+@import "src/common/styles/index";
+
+.profileHeader {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  .headerTitle {
+    @include h2;
+
+    @include sm {
+      font-size: 2em;
+    }
+  }
+
+  .headerEdit {
+    min-width: 56px;
+    width: 56px;
+
+    @include sm {
+      min-width: 48px;
+      width: 48px;
+    }
+
+    .editIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+.profileInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 24px;
+
+  width: 100%;
+
+  @include sm {
+    @include flexColumnCenterLeft;
+    gap: 24px;
+  }
+}
+
+.profileAddition {
+  @include flexColumnCenterLeft;
+  gap: 32px;
+
+  width: 100%;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  .additionReset {
+    width: 100%;
+    max-width: 256px;
+  }
+}

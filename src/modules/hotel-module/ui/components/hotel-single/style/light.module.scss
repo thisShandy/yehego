@@ -1,0 +1,141 @@
+@import "src/common/styles/index";
+
+.hotelContainer {
+  display: flex;
+  gap: 12px;
+
+  width: 100%;
+
+  border-radius: 12px;
+  border: 1px solid $border_color_light;
+
+  .hotelImage {
+    width: 240px;
+    height: 100%;
+
+    border-radius: 12px;
+    object-fit: cover;
+  }
+
+  .hotelInfo {
+    @include flexColumnTopLeft;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 1rem;
+
+    .infoHeader {
+      @include flexColumnTopLeft;
+
+      width: 100%;
+
+      .headerContainer {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        width: 100%;
+
+        .headerTitle {
+          @include h3;
+          font-size: 1.3em;
+        }
+
+        .headerRating {
+          @include flexRowCenter;
+
+          width: 36px;
+          height: 36px;
+
+          border-radius: 6px;
+          background-color: $main_color;
+
+          .ratingValue {
+            @include p;
+          }
+        }
+      }
+
+      .headerAddress {
+        @include flexRowCenter;
+        gap: 6px;
+
+        .addressImage {
+          width: 20px;
+          height: 20px;
+        }
+
+        .addressTitle {
+          @include p;
+        }
+      }
+    }
+
+    .infoFooter {
+      @include flexRowSpace;
+      align-items: flex-end;
+
+      width: 100%;
+      margin-top: 1rem;
+
+      .footerEmission {
+        @include flexRowCenter;
+        gap: 6px;
+
+        .emissionIcon {
+          width: 20px;
+          height: 20px;
+
+          filter: brightness(0) saturate(100%) invert(40%) sepia(69%) saturate(663%) hue-rotate(90deg) brightness(97%) contrast(83%);
+        }
+
+        .emissionTitle {
+          @include p;
+          color: $green_color;
+
+          margin-bottom: -4px;
+        }
+      }
+
+      .footerSummary {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .summaryTitle {
+          @include p;
+          font-size: .875em;
+          color: $border_color;
+          margin-bottom: .25rem;
+        }
+
+        .summaryPrice {
+          @include h4;
+          margin-bottom: .5rem;
+        }
+
+        .summaryButton {
+          @include flexRowCenter;
+
+          width: 156px;
+          height: 40px;
+
+          border-radius: 8px;
+          border: 1px solid $main_color;
+          background-color: $main_color;
+
+          cursor: pointer;
+          @include defaultTransition;
+
+          &:hover {
+            background-color: $main_color_hover;
+          }
+
+          .buttonTitle {
+            @include p;
+          }
+        }
+      }
+    }
+  }
+}

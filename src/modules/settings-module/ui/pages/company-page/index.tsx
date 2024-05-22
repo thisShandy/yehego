@@ -33,6 +33,7 @@ const CompanyPage = () => {
     loading: deleteCardLoading,
     handleDeleteCard
   } = useCompanyCard();
+
   const {
     loading: cardsLoading,
     data: cards,
@@ -95,7 +96,7 @@ const CompanyPage = () => {
                 { name: "Company Name", value: user?.company.name || "-" },
                 { name: "Contact Person", value: user?.company.contact_person || "-" },
                 { name: "Email", value: user?.company.email || "-" },
-                { name: "Phone", value: user?.company.contact_phone ? parsePhoneNumber(`+${user.company.contact_phone}`).formatInternational() : "-" }
+                { name: "Phone", value: user?.company.contact_phone ? parsePhoneNumber(`+${Number(user.company.contact_phone)}`).formatInternational() : "-" }
               ]}
             />
             <InfoSection

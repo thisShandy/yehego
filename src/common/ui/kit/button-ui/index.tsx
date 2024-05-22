@@ -7,7 +7,7 @@ interface IButtonUi extends ITest {
   loading?: boolean;
   disabled?: boolean;
   label?: string;
-  size?: "big" | "medium";
+  size?: "big" | "medium" | "small";
   onClick: () => void;
 }
 

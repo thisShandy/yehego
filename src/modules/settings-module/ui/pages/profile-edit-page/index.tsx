@@ -7,8 +7,11 @@ import FormSection from "~/common/ui/sections/form-section";
 import BackUi from "~/common/ui/kit/back-ui";
 
 import light from "./styles/light.module.scss";
+import {useNavigate} from "react-router-dom";
 
 const ProfileEditPage = () => {
+  const navigate = useNavigate();
+
   const {
     loading,
     userConfig
@@ -23,7 +26,7 @@ const ProfileEditPage = () => {
       <div className={light.backWrapper}>
         <div className={`container ${light.backContainer}`}>
           <BackUi
-            handleClick={() => window.location = "https://app-staging.yehego.com/profile" as unknown as Location}
+            handleClick={() => navigate("/profile")}
           />
         </div>
       </div>

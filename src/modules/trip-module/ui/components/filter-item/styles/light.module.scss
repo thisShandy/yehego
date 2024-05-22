@@ -1,0 +1,27 @@
+@import "src/common/styles/index";
+
+.filterContainer {
+  @include flexRowSpace;
+
+  width: 100%;
+  padding-bottom: 0.5rem;
+
+  border-bottom: 1px solid $border_color;
+
+  cursor: pointer;
+
+  .filterName {
+    @include h5;
+    font-size: .9em;
+  }
+
+  .filterButton {
+    cursor: pointer;
+
+    .buttonIcon {
+      width: 20px;
+
+      transform: rotate(180deg);
+    }
+  }
+}

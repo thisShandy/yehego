@@ -1,5 +1,6 @@
 import type { RouteObject } from "react-router-dom";
 
+import ProfilePage from "~/modules/settings-module/ui/pages/profile-page";
 import ProfileEditPage from "~/modules/settings-module/ui/pages/profile-edit-page";
 import UserEditPage from "~/modules/settings-module/ui/pages/user-edit-page";
 import CompanyPage from "~/modules/settings-module/ui/pages/company-page";
@@ -8,6 +9,10 @@ import CompanyCardPage from "~/modules/settings-module/ui/pages/company-card-pag
 import CompanyEditPage from "~/modules/settings-module/ui/pages/company-edit-page";
 
 const settingsModule: RouteObject[] = [
+  {
+    path: "/profile",
+    element: <ProfilePage />
+  },
   {
     path: "/profile/edit",
     element: <ProfileEditPage />

@@ -13,4 +13,19 @@ export interface IUser {
   department_id: string;
   status: string;
   company: ICompany;
+  office: {
+    id: number;
+    name: string;
+  },
+  department: {
+    id: number;
+    name: string;
+  },
+  address: {
+    city: null | string;
+    country: null | string;
+    postcode: null | string;
+    street: null | string;
+    street2: null | string;
+  };
 }

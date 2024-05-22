@@ -25,6 +25,14 @@
     height: 48px;
   }
 
+  &.small {
+    height: 40px;
+
+    .buttonTitle {
+      font-size: 1em;
+    }
+  }
+
   @include sm {
     height: 48px;
   }
