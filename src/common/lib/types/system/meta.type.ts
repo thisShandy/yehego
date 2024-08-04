@@ -9,11 +9,11 @@ export interface IMeta {
   }[];
   page: {
     "current-page": number;
-    from: number;
+    "from": number;
     "last-page": number;
     "per-page": number;
-    to: number;
-    total: number;
+    "to": number;
+    "total": number;
   };
   path: string;
   per_page: number;

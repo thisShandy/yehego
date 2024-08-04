@@ -1,0 +1,201 @@
+@import "src/common/styles/index";
+
+.tripsContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+
+  .tripsContent {
+    @include flexColumnTopLeft;
+    gap: 24px;
+
+    width: 100%;
+
+    .contentHeader {
+      @include flexRowSpace;
+
+      width: 100%;
+
+      .contentTitle {
+        @include h3;
+      }
+
+      .contentSwitch {
+        @include flexRowCenter;
+        gap: 8px;
+
+        border-radius: 7px;
+        border: 1px solid $border_color_light;
+
+        .switchOption {
+          width: 80px;
+          height: 32px;
+
+          border-radius: 6px;
+
+          cursor: pointer;
+          @include defaultTransition;
+
+          &.active {
+            border: 1px solid $main_color;
+            background-color: $main_color;
+          }
+
+          &:hover {
+            background-color: $main_color_hover;
+          }
+
+          .optionTitle {
+
+          }
+        }
+      }
+    }
+
+    .contentData {
+      @include flexColumnTopLeft;
+      gap: 20px;
+
+      width: 100%;
+    }
+
+    .contentEmpty {
+      @include flexColumnCenter;
+      gap: 24px;
+
+      width: 100%;
+      height: 50vh;
+
+      .emptyTitle {
+        @include h4;
+        font-size: 1.5rem;
+      }
+
+      .emptyButton {
+        width: 256px;
+        height: 44px;
+
+        border-radius: 6px;
+        border: 1px solid $main_color;
+        background-color: $main_color;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        &:hover {
+          background-color: $main_color_hover;
+        }
+
+        .buttonTitle {
+          @include p(1.15rem);
+        }
+      }
+    }
+  }
+
+  .tripsFilter {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 256px;
+    padding: 1rem;
+    margin-top: 3.5rem;
+
+    border-radius: 12px;
+    border: 1px solid $border_color_light;
+
+    .filterDivider {
+      width: 100%;
+      height: 1px;
+      margin: 1rem 0;
+
+      background-color: $border_color_light;
+    }
+
+    .filterColumn {
+      @include flexColumnTopLeft;
+      gap: 18px;
+
+      width: 100%;
+
+      .columnTitle {
+        @include h3;
+        font-size: 1.2em;
+      }
+
+      .columnValues {
+        @include flexColumnTopLeft;
+        gap: 8px;
+
+        .valueItem {
+          @include flexRowCenterLeft;
+          gap: 12px;
+
+          cursor: pointer;
+
+          &:hover {
+            .itemCheck {
+              border-color: $green_color;
+              background-color: $green_color_hover;
+            }
+          }
+
+          .itemCheck {
+            @include flexRowCenter;
+
+            width: 24px;
+            height: 24px;
+
+            border-radius: 4px;
+            border: 1px solid $border_color_light;
+
+            @include defaultTransition;
+
+            &.active {
+              border: none;
+              background-color: $green_color;
+            }
+
+            .checkIcon {
+
+            }
+          }
+
+          .itemTitle {
+            @include p;
+          }
+        }
+      }
+
+      .columnInput {
+        @include flexRowCenterLeft;
+        gap: 6px;
+
+        width: 100%;
+        padding: .5rem;
+
+        border-radius: 8px;
+        border: 1px solid $border_color_light;
+
+        .inputIcon {
+          width: 20px;
+          filter: brightness(0) saturate(100%) invert(98%) sepia(1%) saturate(0%) hue-rotate(136deg) brightness(90%) contrast(80%);
+        }
+
+        .inputField {
+          width: 100%;
+          @include p;
+
+          &::placeholder {
+            color: $border_color;
+          }
+        }
+      }
+    }
+  }
+}

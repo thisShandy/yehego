@@ -14,7 +14,7 @@ interface ICardFormSection {
     type: string;
     expiration: string;
     cardholder: string;
-  },
+  };
   errors: {
     number: null | string;
     type: null | string;
@@ -22,13 +22,11 @@ interface ICardFormSection {
     cardholder: null | string;
     name: null | string;
     lastName: null | string;
-  },
+  };
   handleUpdate: (key: string, value: string) => void;
 }
 
-const CardFormSection: FC<ICardFormSection> = ({
-  form, errors, handleUpdate
-}) => {
+const CardFormSection: FC<ICardFormSection> = ({ form, errors, handleUpdate }) => {
   return (
     <div className={light.cardForm}>
       <InputFormatUi

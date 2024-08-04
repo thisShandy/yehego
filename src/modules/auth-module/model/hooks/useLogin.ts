@@ -3,9 +3,13 @@ import type { AxiosResponse } from "axios";
 import type { IAuthForm } from "~/modules/auth-module/lib/types/auth-form.type.ts";
 
 import { useState } from "react";
+import { useSetRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
 
+import { userState } from "~/common/model/recoil/user.ts";
+
 import api from "~/modules/auth-module/model/api";
+import apiUser from "~/common/model/api";
 
 const initial = {
   email: "",
@@ -14,6 +18,7 @@ const initial = {
 
 export const useLogin = () => {
   const navigate = useNavigate();
+  const setUser = useSetRecoilState(userState);
 
   const [loading, setLoading] = useState<boolean>(false);
   const [form, setForm] = useState<IAuthForm>(initial);
@@ -35,6 +40,9 @@ export const useLogin = () => {
       const response = (await api.login.loginUser(form)) as AxiosResponse<{ access_token: string }>;
 
       localStorage.setItem("access_token", JSON.stringify(response.data.access_token));
+
+      const { data } = await apiUser.user.getUser();
+      setUser(data);
 
       setTimeout(() => {
         navigate("/");

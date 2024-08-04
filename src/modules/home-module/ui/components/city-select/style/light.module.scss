@@ -14,6 +14,10 @@
   @include fadeIn;
   animation-delay: .35s;
 
+  @include md {
+    width: 100%;
+  }
+
   .cityLabel {
     @include p(.75em, $text_color_light);
   }
@@ -27,15 +31,31 @@
     opacity: .65;
   }
 
-  .cityInput {
+  .cityInputContainer {
+    @include flexRowSpace;
+
     width: 100%;
-    height: 16px;
 
-    @include p(1em);
+    .cityInput {
+      width: 100%;
+      height: 16px;
 
-    &::placeholder {
-      color: $text_color;
-      opacity: .65;
+      @include p(1em);
+
+      &::placeholder {
+        color: $text_color;
+        opacity: .65;
+      }
+    }
+
+    .cityClose {
+      transform: rotate(45deg);
+
+      cursor: pointer;
+
+      .closeTitle {
+        @include p(1.2em);
+      }
     }
   }
 
@@ -50,13 +70,32 @@
     border: 1px solid $border_color;
     background-color: $background_color;
 
+    @include md {
+      z-index: 900;
+    }
+
     .searchContent {
       @include flexColumnTopLeft;
 
       width: 100%;
-      min-height: 256px;
+      height: 196px;
 
       overflow-x: hidden;
+      overflow-y: scroll;
+
+      &.loading {
+        @include flexRowCenter;
+      }
+
+      .searchLoader {
+        width: 40px;
+        height: 40px;
+
+        border-radius: 999px;
+        background-color: $main_color;
+
+        animation: pulse ease-in-out 1.5s infinite;
+      }
 
       .searchItem {
         @include flexRowCenterLeft;
@@ -64,7 +103,8 @@
 
         width: 100%;
         height: 48px;
-        padding: 0 .5rem;
+        min-height: 48px;
+        padding: 0 .75rem;
 
         border-radius: 6px;
 
@@ -81,8 +121,31 @@
 
         .itemTitle {
           @include p(1.2em);
+          text-align: left;
         }
       }
     }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+
+    -webkit-box-shadow: 0 0 0 0 rgba(255, 212, 100, 1);
+    -moz-box-shadow: 0 0 0 0 rgba(255, 212, 100, 1);
+    box-shadow: 0 0 0 0 rgba(255, 212, 100, 1);
+  }
+
+  50% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+
+    -webkit-box-shadow: 0 0 0 10px rgba(255, 212, 100, 0);
+    -moz-box-shadow: 0 0 0 10px rgba(255, 212, 100, 0);
+    box-shadow: 0 0 0 10px rgba(255, 212, 100, 0);
   }
 }

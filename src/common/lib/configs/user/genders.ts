@@ -3,14 +3,14 @@ import type { IDropdownOption } from "~/common/lib/types/form/dropdown-option.ty
 export const genders: IDropdownOption[] = [
   {
     key: "male",
-    value: "Male",
+    value: "Male"
   },
   {
     key: "female",
-    value: "Female",
+    value: "Female"
   },
   {
     key: "unspecified",
-    value: "Non-binary/other",
-  },
+    value: "Non-binary/other"
+  }
 ];

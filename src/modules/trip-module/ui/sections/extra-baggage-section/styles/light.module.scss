@@ -1,0 +1,24 @@
+@import "src/common/styles/index";
+
+.baggageContainer {
+  @include flexColumnCenter;
+  gap: 1rem;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  .baggageTitle {
+    @include h4;
+    color: #B6B6B6;
+  }
+
+  .baggageInfo {
+    @include flexColumnTopLeft;
+    gap: 1rem;
+
+    width: 100%;
+    padding: 0 0 1rem 0;
+
+    overflow-x: scroll;
+  }
+}

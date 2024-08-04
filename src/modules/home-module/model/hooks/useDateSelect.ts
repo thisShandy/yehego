@@ -11,7 +11,7 @@ export const useDateSelect = () => {
   const [dateSelected, setDateSelected] = useState(false);
 
   const handleSelect = (ranges: RangeKeyDict) => {
-    setSelectionRange(prev => ({
+    setSelectionRange((prev) => ({
       ...prev,
       startDate: ranges.selection.startDate as Date,
       endDate: ranges.selection.endDate as Date

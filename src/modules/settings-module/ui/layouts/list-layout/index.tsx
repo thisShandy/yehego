@@ -9,33 +9,19 @@ interface IListLayout {
   emptyTitle: string;
 }
 
-const ListLayout: FC<PropsWithChildren<IListLayout>> = ({
-  children, title, handleAdd, empty, emptyTitle
-}) => {
+const ListLayout: FC<PropsWithChildren<IListLayout>> = ({ children, title, handleAdd, empty, emptyTitle }) => {
   return (
     <div className={light.listWrapper}>
       <div className={`container ${light.listContainer}`}>
         <div className={light.listHeader}>
-          <span className={light.headerTitle}>
-            {title}
-          </span>
-          <button
-            type="button"
-            className={light.headerAction}
-            onClick={handleAdd}
-          >
-          <span className={light.actionTitle}>
-            +
-          </span>
+          <span className={light.headerTitle}>{title}</span>
+          <button type="button" className={light.headerAction} onClick={handleAdd}>
+            <span className={light.actionTitle}>+</span>
           </button>
         </div>
         <div className={light.listContent}>
           {!empty && children}
-          {empty && (
-            <span className={light.contentEmpty}>
-              {emptyTitle}
-            </span>
-          )}
+          {empty && <span className={light.contentEmpty}>{emptyTitle}</span>}
         </div>
       </div>
     </div>

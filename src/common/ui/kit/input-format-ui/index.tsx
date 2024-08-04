@@ -13,21 +13,11 @@ interface IInputFormatUi {
   handleChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const InputFormatUi: FC<IInputFormatUi> = ({
-  value, format, mask, error, placeholder = "", handleChange
-}) => {
+const InputFormatUi: FC<IInputFormatUi> = ({ value, format, mask, error, placeholder = "", handleChange }) => {
   return (
     <div className={`${light.inputContainer} ${error && light.error}`}>
-      <span className={light.inputName}>
-        {error || placeholder}
-      </span>
-      <PatternFormat
-        value={value}
-        format={format}
-        allowEmptyFormatting
-        mask={mask}
-        onChange={handleChange}
-      />
+      <span className={light.inputName}>{error || placeholder}</span>
+      <PatternFormat value={value} format={format} allowEmptyFormatting mask={mask} onChange={handleChange} />
     </div>
   );
 };

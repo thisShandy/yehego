@@ -10,9 +10,7 @@ interface IFilterItem {
 const FilterItem: FC<IFilterItem> = ({ name }) => {
   return (
     <button type="button" className={light.filterContainer}>
-      <span className={light.filterName}>
-        {name}
-      </span>
+      <span className={light.filterName}>{name}</span>
       <div className={light.filterButton}>
         <img className={light.buttonIcon} src={arrow_down} alt="arrow_down" />
       </div>

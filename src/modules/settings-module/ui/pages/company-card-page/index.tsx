@@ -12,13 +12,7 @@ import light from "./styles/light.module.scss";
 
 const CompanyCardPage = () => {
   const navigate = useNavigate();
-  const {
-    loading,
-    form,
-    errors,
-    handleUpdate,
-    handleSubmit
-  } = useCreditCard(api.card.createCompanyCard);
+  const { loading, form, errors, handleUpdate, handleSubmit } = useCreditCard(api.card.createCompanyCard);
 
   return (
     <div className={light.cardWrapper}>
@@ -26,18 +20,10 @@ const CompanyCardPage = () => {
         <BackUi handleClick={() => navigate("/admin")} />
         <span className={light.cardTitle}>Add Credit Card</span>
         <div className={light.cardForm}>
-          <CardFormSection
-            form={form}
-            errors={errors}
-            handleUpdate={handleUpdate}
-          />
+          <CardFormSection form={form} errors={errors} handleUpdate={handleUpdate} />
         </div>
         <div className={light.cardSubmit}>
-          <ButtonUi
-            loading={loading}
-            label="Save"
-            onClick={handleSubmit}
-          />
+          <ButtonUi loading={loading} label="Save" onClick={handleSubmit} />
         </div>
       </div>
     </div>

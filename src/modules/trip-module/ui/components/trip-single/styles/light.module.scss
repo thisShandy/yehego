@@ -65,6 +65,11 @@
     .controlCost {
       @include h5;
       padding: 1rem 0;
+
+      &.sold {
+        padding: .5rem 0;
+        color: $text_color_light;
+      }
     }
 
     .controlData {
@@ -77,6 +82,10 @@
         .emissionTitle {
           @include p;
           opacity: .75;
+
+          &.sold {
+            color: $text_color_light;
+          }
         }
       }
 
@@ -86,7 +95,7 @@
 
         border-radius: 8px;
         border: 1px solid $main_color;
-        background-color: $main_color;
+        background-color: transparent;
 
         cursor: pointer;
         @include defaultTransition;
@@ -116,6 +125,9 @@
     width: 100%;
 
     .infoTitle {
+      @include flexRowCenter;
+      gap: 6px;
+
       @include h5;
       font-size: 1.05em;
     }

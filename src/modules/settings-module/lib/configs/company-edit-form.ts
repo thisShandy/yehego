@@ -1,8 +1,8 @@
 import type { IFormItem } from "~/common/lib/types/form/form-item.type.ts";
 
 import { currency } from "~/common/lib/configs/system/currency.ts";
-import {language} from "~/common/lib/configs/system/language.ts";
-import {time} from "~/common/lib/configs/system/time.ts";
+import { language } from "~/common/lib/configs/system/language.ts";
+import { time } from "~/common/lib/configs/system/time.ts";
 
 export const companyEditForm: IFormItem[] = [
   {
@@ -12,7 +12,7 @@ export const companyEditForm: IFormItem[] = [
     name: "name",
     label: "Company name",
     placeholder: "John's and Brothers",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -21,7 +21,7 @@ export const companyEditForm: IFormItem[] = [
     name: "tax_id",
     label: "Org-no",
     placeholder: "DO00T00000000000000000000000",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -30,7 +30,7 @@ export const companyEditForm: IFormItem[] = [
     name: "contact_person",
     label: "Contact person",
     placeholder: "John Doe",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -39,7 +39,7 @@ export const companyEditForm: IFormItem[] = [
     name: "contact_phone",
     label: "Contact phone",
     placeholder: "+46 123-4567-890",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -48,7 +48,7 @@ export const companyEditForm: IFormItem[] = [
     name: "email",
     label: "Email",
     placeholder: "contact@company.com",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -57,7 +57,7 @@ export const companyEditForm: IFormItem[] = [
     name: "street",
     label: "Street",
     placeholder: "Lizeth Orchard",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -66,7 +66,7 @@ export const companyEditForm: IFormItem[] = [
     name: "postcode",
     label: "Zip Code",
     placeholder: "31865",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -75,7 +75,7 @@ export const companyEditForm: IFormItem[] = [
     name: "city",
     label: "City",
     placeholder: "Stockholm",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -84,7 +84,7 @@ export const companyEditForm: IFormItem[] = [
     name: "country",
     label: "Country",
     placeholder: "Sweden",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -94,7 +94,7 @@ export const companyEditForm: IFormItem[] = [
     label: "Currency",
     placeholder: "EUR",
     config: currency,
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -104,7 +104,7 @@ export const companyEditForm: IFormItem[] = [
     label: "Language",
     placeholder: "English",
     config: language,
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -115,5 +115,5 @@ export const companyEditForm: IFormItem[] = [
     placeholder: "24h",
     config: time,
     value: ""
-  },
+  }
 ];

@@ -25,10 +25,7 @@ const ProfilePage = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
 
-  const {
-    loading: cardsLoading,
-    data: cards,
-  } = useFetch<ICard[]>(USER_CARD__PATH, []);
+  const { loading: cardsLoading, data: cards } = useFetch<ICard[]>(USER_CARD__PATH, []);
 
   if (!user) return null;
 
@@ -40,10 +37,8 @@ const ProfilePage = () => {
             {user?.firstname} {user?.lastname}
           </span>
           <div className={light.headerEdit}>
-            <ButtonUi
-              onClick={() => navigate("/profile/edit")}
-            >
-              <img className={light.editIcon} src={edit} alt="edit"/>
+            <ButtonUi onClick={() => navigate("/profile/edit")}>
+              <img className={light.editIcon} src={edit} alt="edit" />
             </ButtonUi>
           </div>
         </div>
@@ -52,27 +47,30 @@ const ProfilePage = () => {
             name="Contacts"
             data={[
               { name: "Email", value: `${user?.firstname} ${user?.lastname}` || "-" },
-              { name: "Gender", value: genders.find(el => el.key === user?.sex)!.value || "-" },
+              { name: "Gender", value: genders.find((el) => el.key === user?.sex)!.value || "-" },
               { name: "Email", value: user?.company.email || "-" },
-              { name: "Phone", value: user?.phone ? parsePhoneNumber(`+${Number(user?.phone)}`).formatInternational() : "-" },
+              {
+                name: "Phone",
+                value: user?.phone ? parsePhoneNumber(`+${Number(user?.phone)}`).formatInternational() : "-"
+              },
               { name: "Uniq ID", value: user?.uniq_id || "-" }
             ]}
           />
           <InfoSection
             name="Address"
             data={[
-              { name: "Country", value: user.address.country || "-" },
-              { name: "City", value: user.address.city || "-" },
-              { name: "Postcode", value: user?.address.postcode || "-" },
-              { name: "Street", value: user.address.street || "-" },
-              { name: "Additional info", value: user?.address.street2 || "-" }
+              { name: "Country", value: user.address?.country || "-" },
+              { name: "City", value: user.address?.city || "-" },
+              { name: "Postcode", value: user?.address?.postcode || "-" },
+              { name: "Street", value: user.address?.street || "-" },
+              { name: "Additional info", value: user?.address?.street2 || "-" }
             ]}
           />
           <InfoSection
             name="Additional info"
             data={[
-              { name: "Office", value: user.office.name || "-" },
-              { name: "Department", value: user.department.name || "-" }
+              { name: "Office", value: user.office?.name || "-" },
+              { name: "Department", value: user.department?.name || "-" }
             ]}
           />
         </div>
@@ -83,33 +81,32 @@ const ProfilePage = () => {
             handleAdd={() => navigate("/admin/card")}
             emptyTitle="There aren't any credit cards"
           >
-            {!cardsLoading && cards.map(item => (
-              <Card
-                key={item.id}
-                id={item.id}
-                number={item.maskedNumber}
-                holder={`${item.name} ${item.lastName}`}
-                handleDelete={() => console.log("delete")}
-              />
-            ))}
+            {!cardsLoading &&
+              cards.map((item) => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  number={item.maskedNumber}
+                  holder={`${item.name} ${item.lastName}`}
+                  handleDelete={() => console.log("delete")}
+                />
+              ))}
           </ListLayout>
           <ListLayout
             title="Travel Docuements"
             empty={true}
             handleAdd={() => console.log("add")}
             emptyTitle="There aren't any travel documents"
-          >
-          </ListLayout>
+          />
           <ListLayout
             title="Loyalty Programs"
             empty={true}
-            handleAdd={() => console.log("add")}
+            handleAdd={() => navigate("/profile/loyalty/add")}
             emptyTitle="There aren't any loualty programs"
-          >
-          </ListLayout>
-          <div className={light.additionReset}>
-            <ButtonUi label="Reset passowrd" onClick={() => console.log("Hello")} />
-          </div>
+          />
+          {/*<div className={light.additionReset}>*/}
+          {/*  <ButtonUi label="Reset passowrd" onClick={() => console.log("Hello")} />*/}
+          {/*</div>*/}
         </div>
       </ContainerLayout>
     </MainLayout>

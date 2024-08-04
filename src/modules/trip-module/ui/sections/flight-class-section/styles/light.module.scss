@@ -1,0 +1,30 @@
+@import "src/common/styles/index";
+
+.classContainer {
+  @include flexColumnCenter;
+  gap: 1rem;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  overflow-y: hidden;
+
+  .classTitle {
+    @include h4;
+    color: #B6B6B6;
+  }
+
+  .classInfo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1fr;
+    align-content: stretch;
+    gap: .5rem;
+
+    width: 100%;
+    padding: 0 0 1rem 0;
+
+    overflow-x: scroll;
+    overflow-y: hidden;
+  }
+}

@@ -14,13 +14,7 @@ import UsersTableSkeleton from "~/modules/settings-module/ui/tabels/users-table/
 const CompanyUsersPage = () => {
   const navigate = useNavigate();
 
-  const {
-    loading,
-    list,
-    meta,
-    page,
-    handlePage
-  } = useCompanyUsers();
+  const { loading, list, meta, page, handlePage } = useCompanyUsers();
 
   return (
     <MainLayout>
@@ -30,47 +24,24 @@ const CompanyUsersPage = () => {
           <span className={light.headerTitle}>Manage users</span>
         </div>
         <div className={light.usersAdd}>
-          <span className={light.addTitle}>
-            Want to add a new one?
-          </span>
+          <span className={light.addTitle}>Want to add a new one?</span>
           <div className={light.addControl}>
-            <ButtonUi size="medium" onClick={() => console.log("form")}>
-              <span className={light.controlAdd}>
-                +
-              </span>
-              <span className={light.controlTitle}>
-                Create user
-              </span>
+            <ButtonUi size="medium" onClick={() => navigate("/admin/invite/manual")}>
+              <span className={light.controlAdd}>+</span>
+              <span className={light.controlTitle}>Create user</span>
             </ButtonUi>
-            <ButtonUi size="medium" onClick={() => console.log("email")}>
-              <span className={light.controlAdd}>
-                +
-              </span>
-              <span className={light.controlTitle}>
-                Invite via email
-              </span>
+            <ButtonUi size="medium" onClick={() => navigate("/admin/invite/email")}>
+              <span className={light.controlAdd}>+</span>
+              <span className={light.controlTitle}>Invite via email</span>
             </ButtonUi>
-            <ButtonUi size="medium" onClick={() => console.log("excel")}>
-              <span className={light.controlAdd}>
-                +
-              </span>
-              <span className={light.controlTitle}>
-                Invite via excel
-              </span>
+            <ButtonUi size="medium" onClick={() => navigate("/admin/invite/excel")}>
+              <span className={light.controlAdd}>+</span>
+              <span className={light.controlTitle}>Invite via excel</span>
             </ButtonUi>
           </div>
         </div>
-        {!loading && (
-          <UsersTable
-            list={list}
-            meta={meta!}
-            page={page}
-            handlePage={handlePage}
-          />
-        )}
-        {loading && (
-          <UsersTableSkeleton />
-        )}
+        {!loading && <UsersTable list={list} meta={meta!} page={page} handlePage={handlePage} />}
+        {loading && <UsersTableSkeleton />}
       </ContainerLayout>
     </MainLayout>
   );

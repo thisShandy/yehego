@@ -1,0 +1,86 @@
+@import "src/common/styles/index";
+
+.hotelContainer {
+  @include flexRowCenter;
+
+  width: 100%;
+  height: 80vh;
+
+  .hotelData {
+    width: 60%;
+  }
+
+  .hotelInfo {
+    @include flexColumnTopLeft;
+    gap: 24px;
+
+    width: 40%;
+    height: 100%;
+
+    .infoPhoto {
+      @include flexColumnTopLeft;
+      gap: 12px;
+
+      width: 100%;
+
+      .photoTitle {
+        @include h5;
+      }
+
+      .photoData {
+        @include flexRowSpace;
+        gap: 12px;
+
+        width: 100%;
+
+        .dataImage {
+          width: 32%;
+          height: 156px;
+
+          object-fit: cover;
+
+          border-radius: 12px;
+        }
+      }
+    }
+
+    .infoAbout {
+      @include flexColumnTopLeft;
+      gap: 12px;
+
+      width: 100%;
+
+      .aboutTitle {
+        @include h5;
+      }
+
+      .aboutDescription {
+        @include p;
+        font-size: .9em;
+        text-align: justify;
+      }
+    }
+
+    .infoLocation {
+      @include flexColumnTopLeft;
+      gap: 12px;
+
+      width: 100%;
+      height: 100%;
+
+      .locationTitle {
+        @include h5;
+      }
+
+      .locationMap {
+        @include flexRowCenter;
+
+        width: 100%;
+        height: 100%;
+
+        border-radius: 12px;
+        background-color: $main_color;
+      }
+    }
+  }
+}

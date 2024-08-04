@@ -8,9 +8,9 @@ export const userEditForm: IFormItem[] = [
     group: "Main information",
     type: "text",
     name: "firstname",
-    label: "First name",
+    label: "First name (as in passport)",
     placeholder: "John",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -19,7 +19,21 @@ export const userEditForm: IFormItem[] = [
     name: "lastname",
     label: "Last name",
     placeholder: "Doe",
+    value: ""
+  },
+  {
+    required: true,
+    group: "Main information",
+    type: "text",
+    name: "middle_name",
+    label: "Middle name (as in passport)",
+    placeholder: "Andrew Tony",
     value: "",
+    confirm: {
+      name: "not_have_middle_name",
+      label: "I don't have middle name",
+      value: false
+    }
   },
   {
     required: false,
@@ -28,7 +42,7 @@ export const userEditForm: IFormItem[] = [
     name: "uniq_id",
     label: "User ID",
     placeholder: "user_id",
-    value: "",
+    value: ""
   },
   {
     required: true,
@@ -37,7 +51,7 @@ export const userEditForm: IFormItem[] = [
     name: "date_of_birth",
     label: "Date of birth",
     placeholder: "31-02-1990",
-    value: "",
+    value: ""
   },
   {
     required: true,

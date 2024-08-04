@@ -6,8 +6,10 @@ import { useRecoilValue } from "recoil";
 import { useNavigate } from "react-router-dom";
 import { parsePhoneNumber } from "libphonenumber-js";
 
-import { useFetch} from "~/common/model/hooks/helpers/useFetch.ts";
+import { useFetch } from "~/common/model/hooks/helpers/useFetch.ts";
 import { useCompanyCard } from "~/common/model/hooks/cards/useCompanyCard.ts";
+import { useProvider } from "~/modules/settings-module/model/hooks/useProvider.ts";
+import { useDepartmentOffice } from "~/modules/settings-module/model/hooks/useDepartmentOffice.ts";
 
 import { userState } from "~/common/model/recoil/user.ts";
 
@@ -29,25 +31,21 @@ const CompanyPage = () => {
   const navigate = useNavigate();
   const user = useRecoilValue(userState);
 
-  const {
-    loading: deleteCardLoading,
-    handleDeleteCard
-  } = useCompanyCard();
+  const { loading: deleteCardLoading, handleDeleteCard } = useCompanyCard();
+  const { loading: deleteDepartmentOfficeLoading, handleDelete } = useDepartmentOffice();
 
-  const {
-    loading: cardsLoading,
-    data: cards,
-  } = useFetch<ICard[]>(COMPANY_CARD__PATH, [], [deleteCardLoading]);
-
-  const {
-    loading: officesLoading,
-    data: offices
-  } = useFetch<IOffice[]>(OFFICES__PATH, []);
-
-  const {
-    loading: departmentsLoading,
-    data: departments
-  } = useFetch<IDepartment[]>(DEPARTMENTS__PATH, []);
+  const { loading: cardsLoading, data: cards } = useFetch<ICard[]>(COMPANY_CARD__PATH, [], [deleteCardLoading]);
+  const { loading: officesLoading, data: offices } = useFetch<IOffice[]>(
+    OFFICES__PATH,
+    [],
+    [deleteDepartmentOfficeLoading]
+  );
+  const { loading: departmentsLoading, data: departments } = useFetch<IDepartment[]>(
+    DEPARTMENTS__PATH,
+    [],
+    [deleteDepartmentOfficeLoading]
+  );
+  const { loading: providersLoading, providers, handleDelete: handleDeleteProvider } = useProvider(true);
 
   if (deleteCardLoading || cardsLoading || officesLoading || departmentsLoading) return <Skeleton />;
 
@@ -58,33 +56,22 @@ const CompanyPage = () => {
           <div className={light.companyHeader}>
             <div className={light.headerInfo}>
               <div className={light.infoContainer}>
-                <span className={light.infoTitle}>
-                  {user?.company.name}
-                </span>
-                <span className={light.infoTax}>
-                  {user?.company.tax_id}
-                </span>
+                <span className={light.infoTitle}>{user?.company.name}</span>
+                <span className={light.infoTax}>{user?.company.tax_id}</span>
               </div>
               <div className={light.infoEdit}>
-                <ButtonUi
-                  onClick={() => navigate("/admin/edit")}
-                >
-                  <img className={light.editIcon} src={edit} alt="edit"/>
+                <ButtonUi onClick={() => navigate("/admin/edit")}>
+                  <img className={light.editIcon} src={edit} alt="edit" />
                 </ButtonUi>
               </div>
             </div>
             <div className={light.headerUsers}>
               <div className={light.usersManage}>
-                <ButtonUi
-                  label="Manage users"
-                  onClick={() => navigate("/admin/users")}
-                />
+                <ButtonUi label="Manage users" onClick={() => navigate("/admin/users")} />
               </div>
               <div className={light.usersEdit}>
-                <ButtonUi
-                  onClick={() => navigate("/admin/edit")}
-                >
-                  <img className={light.editIcon} src={edit} alt="edit"/>
+                <ButtonUi onClick={() => navigate("/admin/edit")}>
+                  <img className={light.editIcon} src={edit} alt="edit" />
                 </ButtonUi>
               </div>
             </div>
@@ -96,7 +83,12 @@ const CompanyPage = () => {
                 { name: "Company Name", value: user?.company.name || "-" },
                 { name: "Contact Person", value: user?.company.contact_person || "-" },
                 { name: "Email", value: user?.company.email || "-" },
-                { name: "Phone", value: user?.company.contact_phone ? parsePhoneNumber(`+${Number(user.company.contact_phone)}`).formatInternational() : "-" }
+                {
+                  name: "Phone",
+                  value: user?.company.contact_phone
+                    ? parsePhoneNumber(`+${Number(user.company.contact_phone)}`).formatInternational()
+                    : "-"
+                }
               ]}
             />
             <InfoSection
@@ -123,48 +115,64 @@ const CompanyPage = () => {
             handleAdd={() => navigate("/admin/card")}
             emptyTitle="There aren't any credit cards"
           >
-            {!cardsLoading && cards.map(item => (
-              <Card
-                key={item.id}
-                id={item.id}
-                number={item.maskedNumber}
-                holder={`${item.name} ${item.lastName}`}
-                handleDelete={handleDeleteCard}
-              />
-            ))}
+            {!cardsLoading &&
+              cards.map((item) => (
+                <Card
+                  key={item.id}
+                  id={item.id}
+                  number={item.maskedNumber}
+                  holder={`${item.name} ${item.lastName}`}
+                  handleDelete={handleDeleteCard}
+                />
+              ))}
           </ListLayout>
           <ListLayout
             title="Offices"
             empty={!offices.length}
-            handleAdd={() => console.log("add")}
+            handleAdd={() => navigate("/admin/office/add")}
             emptyTitle="There aren't any offices"
           >
-            {!officesLoading && offices.map(item => (
-              <Group
-                key={item.id}
-                name={item.name}
-              />
-            ))}
+            {!officesLoading &&
+              offices.map((item) => (
+                <Group
+                  key={item.id}
+                  id={item.id.toString()}
+                  name={item.name}
+                  handleDelete={(id) => handleDelete("office", id)}
+                />
+              ))}
           </ListLayout>
           <ListLayout
             title="Departments"
             empty={!departments.length}
-            handleAdd={() => console.log("add")}
+            handleAdd={() => navigate("/admin/department/add")}
             emptyTitle="There aren't any departments"
           >
-            {!departmentsLoading && departments.map(item => (
-              <Group
-                key={item.id}
-                name={item.name}
-              />
-            ))}
+            {!departmentsLoading &&
+              departments.map((item) => (
+                <Group
+                  key={item.id}
+                  id={item.id.toString()}
+                  name={item.name}
+                  handleDelete={(id) => handleDelete("department", id)}
+                />
+              ))}
           </ListLayout>
           <ListLayout
             title="Service Providers"
-            empty={true}
-            handleAdd={() => console.log("add")}
+            empty={!providers.length}
+            handleAdd={() => navigate("/admin/provider/add")}
             emptyTitle="There aren't any service providers"
           >
+            {!providersLoading &&
+              providers.map((item) => (
+                <Group
+                  key={item.id}
+                  id={item.id}
+                  name={`${item.provider} | Customer ID: ${item.customer_id} | Contract ID: ${item.contract_id}`}
+                  handleDelete={handleDeleteProvider}
+                />
+              ))}
           </ListLayout>
         </div>
       </div>

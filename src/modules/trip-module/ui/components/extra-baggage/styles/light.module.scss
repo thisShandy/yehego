@@ -1,0 +1,43 @@
+@import "src/common/styles/index";
+
+.extraContainer {
+  @include flexRowCenterLeft;
+
+  width: 100%;
+
+  .extraTitle {
+    width: 360px;
+
+    @include h4;
+  }
+
+  .extraContent {
+    @include flexRowCenterLeft;
+    gap: 1rem;
+
+    width: 100%;
+
+    .contentBaggage {
+      @include flexRowSpace;
+
+      width: 100%;
+      height: 48px;
+      padding: 0 1rem;
+
+      border-radius: 8px;
+      border: 1px solid $border_color_light;
+
+      cursor: pointer;
+      transition: all ease-in-out .15s;
+
+      &.active {
+        border: 1px solid $main_color;
+        background-color: $main_color;
+      }
+
+      &:hover {
+        border: 1px solid $main_color;
+      }
+    }
+  }
+}

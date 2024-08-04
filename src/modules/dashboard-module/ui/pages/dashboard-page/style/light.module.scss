@@ -1,0 +1,255 @@
+@import "src/common/styles/index";
+
+.dashboardContainer {
+  @include flexColumnTopLeft;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 0;
+
+  .dashboardTitle {
+    @include h2;
+
+    @include sm {
+      font-size: 2em;
+    }
+  }
+
+  .dashboardFilter {
+    @include flexRowSpace;
+    gap: 16px;
+
+    width: 100%;
+    margin-top: 2rem;
+
+    .filterItems {
+      @include flexRowCenter;
+      gap: 6px;
+
+      .filterItem {
+        padding: .25rem;
+
+        border-bottom: 2px solid $background_color;
+
+        cursor: pointer;
+        @include defaultTransition;
+
+        &:hover {
+          border-bottom: 2px solid $text_color_light;
+        }
+
+        &.active {
+          border-bottom: 2px solid $text_color;
+
+          .itemTitle {
+            color: $text_color;
+          }
+        }
+
+        .itemTitle {
+          @include p;
+          color: $text_color_light;
+        }
+      }
+    }
+  }
+
+  .dashboardInfo {
+    @include flexRowCenter;
+    gap: 16px;
+
+    width: 100%;
+    margin-top: 2rem;
+
+    @include fadeIn;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    .infoChart {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 75%;
+      height: 40vh;
+      padding: 1.5rem;
+
+      border-radius: 24px;
+      border: 1px solid $border_color_light;
+
+      @include md {
+        width: 100%;
+      }
+
+      .chartHeader {
+        @include flexColumnTopLeft;
+        gap: 6px;
+
+        .headerTitle {
+          @include h5;
+        }
+
+        .headerDescription {
+          @include p;
+          color: $green_color;
+        }
+      }
+
+      .chartGraph {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 12px;
+
+        .graphItem {
+          @include flexColumnCenter;
+          gap: 6px;
+
+          width: 100%;
+
+          .graphTitle {
+            @include p;
+          }
+
+          .graphColumn {
+            width: 100%;
+            border-radius: 16px;
+
+            background-color: $main_color;
+          }
+        }
+      }
+    }
+
+    .infoBudget {
+      @include flexRowCenter;
+
+      width: 25%;
+      height: 40vh;
+
+      border-radius: 24px;
+      border: 1px solid $border_color_light;
+
+      @include md {
+        width: 100%;
+      }
+    }
+  }
+
+  .dashboardGeneral {
+    @include flexRowCenter;
+    gap: 16px;
+
+    width: 100%;
+    margin-top: 1rem;
+
+    @include fadeIn;
+
+    @include md {
+      flex-direction: column;
+    }
+
+    .generalItem {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      width: 100%;
+      height: 196px;
+      padding: 1.5rem;
+
+      border-radius: 24px;
+      border: 1px solid $border_color_light;
+
+      .generalHeader {
+        @include flexRowSpace;
+        align-items: flex-start;
+
+        .headerInfo {
+          @include flexColumnTopLeft;
+
+          .infoTitle {
+            @include h5;
+
+            &.green {
+              color: $green_color;
+            }
+          }
+
+          .infoSubtitle {
+            @include p;
+            color: $text_color_light;
+
+            .subtitleAmount {
+              @include h5;
+            }
+          }
+
+          .infoContent {
+            @include p;
+            color: $green_color;
+
+            margin-top: .1rem;
+          }
+
+          .infoData {
+            @include flexRowCenter;
+            gap: 12px;
+
+            margin-top: 0.5rem;
+
+            .dataItem {
+              @include flexColumnTopLeft;
+              gap: 4px;
+
+              .itemTitle {
+                @include p;
+                font-size: 0.8em;
+                color: $text_color_light;
+              }
+
+              .dataDescription {
+                @include h5;
+              }
+            }
+          }
+        }
+
+        .headerImage {
+          width: 108px;
+        }
+      }
+
+      .generalFooter {
+        @include flexRowSpace;
+
+        .footerItem {
+          @include flexColumnTopLeft;
+          gap: 4px;
+
+          .itemTitle {
+            @include p;
+            font-size: .9em;
+            color: $text_color_light;
+          }
+
+          .itemDescription {
+            @include p;
+            color: $text_color_light;
+
+            .descriptionValue {
+              @include h5;
+              color: $green_color;
+            }
+          }
+
+          .itemMoney {
+            @include h5;
+          }
+        }
+      }
+    }
+  }
+}

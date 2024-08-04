@@ -4,6 +4,8 @@
   @include flexColumnCenterLeft;
   gap: 4px;
 
+  position: relative;
+
   width: 156px;
   height: 42px;
 
@@ -16,12 +18,50 @@
     @include p(.75em, $text_color_light);
   }
 
-  .timeSelected {
-    @include p(1em);
+  .timeSelectedContainer {
+    @include flexRowSpace;
+
+    width: 100%;
+    height: 16px;
+
+    .timeSelected {
+      @include p(1em);
+    }
+
+    .timeClose {
+      transform: rotate(45deg);
+
+      cursor: pointer;
+
+      .closeTitle {
+        @include p(1.2em);
+      }
+    }
   }
 
   .timePlaceholder {
     @include p(1em);
     opacity: .65;
+  }
+
+  .timeWrapper {
+    position: absolute;
+    left: calc(50% - 104px);
+    top: 64px;
+
+    width: 208px;
+
+    border-radius: 12px;
+    border: 1px solid $border_color;
+    background-color: $background_color;
+
+    z-index: 999;
+  }
+
+  .timeSelect {
+    @include flexRowCenter;
+
+    width: 100%;
+    height: 128px;
   }
 }

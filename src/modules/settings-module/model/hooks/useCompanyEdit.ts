@@ -16,19 +16,22 @@ export const useCompanyEdit = () => {
     (async () => {
       if (user) {
         try {
-          setCompanyConfig(prev => prev.map(item => {
-            const newItem = item;
+          setCompanyConfig((prev) =>
+            prev.map((item) => {
+              const newItem = item;
 
-            if (item.group === "Address") {
-              // @ts-ignore
-              newItem.value = user.company.address[item.name] === null ? "" : user.company.address[item.name].toString();
-            } else {
-              // @ts-ignore
-              newItem.value = user.company[item.name] === null ? "" : user.company[item.name].toString();
-            }
+              if (item.group === "Address") {
+                // @ts-ignore
+                newItem.value =
+                  user.company.address[item.name] === null ? "" : user.company.address[item.name].toString();
+              } else {
+                // @ts-ignore
+                newItem.value = user.company[item.name] === null ? "" : user.company[item.name].toString();
+              }
 
-            return newItem;
-          }));
+              return newItem;
+            })
+          );
           setLoading(false);
         } catch (e) {
           console.log(e);
@@ -43,7 +46,16 @@ export const useCompanyEdit = () => {
   };
 
   const handleUpdate = async (data: any) => {
-    await api.company.updateCompany(user!.company.uuid, data);
+    const payload = {
+      ...data,
+      address: {
+        street: data.street,
+        city: data.city,
+        postcode: data.postcode,
+        country: data.country
+      }
+    };
+    await api.company.updateCompany(user!.company.uuid, payload);
     await getUser();
   };
 

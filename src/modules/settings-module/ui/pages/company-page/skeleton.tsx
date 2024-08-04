@@ -75,27 +75,27 @@ const Skeleton = () => {
         <div className={light.skeletonAddition}>
           <div className={light.additionItem}>
             <div className={light.itemHeader}>
-              <SkeletonUi width={204} height={32} borderRadius={6}/>
-              <SkeletonUi width={40} height={40} borderRadius={6}/>
+              <SkeletonUi width={204} height={32} borderRadius={6} />
+              <SkeletonUi width={40} height={40} borderRadius={6} />
             </div>
             <div className={light.itemContent}>
-              <SkeletonUi width={150} height={18} borderRadius={6}/>
+              <SkeletonUi width={150} height={18} borderRadius={6} />
               <div className={light.contentControl}>
-                <SkeletonUi width={140} height={16} borderRadius={6}/>
-                <SkeletonUi width={20} height={20} borderRadius={6}/>
+                <SkeletonUi width={140} height={16} borderRadius={6} />
+                <SkeletonUi width={20} height={20} borderRadius={6} />
               </div>
             </div>
           </div>
           <div className={`${light.additionItem} ${light.second}`}>
             <div className={light.itemHeader}>
-              <SkeletonUi width={204} height={32} borderRadius={6}/>
-              <SkeletonUi width={40} height={40} borderRadius={6}/>
+              <SkeletonUi width={204} height={32} borderRadius={6} />
+              <SkeletonUi width={40} height={40} borderRadius={6} />
             </div>
             <div className={light.itemContent}>
-              <SkeletonUi width={150} height={18} borderRadius={6}/>
+              <SkeletonUi width={150} height={18} borderRadius={6} />
               <div className={light.contentControl}>
-                <SkeletonUi width={140} height={16} borderRadius={6}/>
-                <SkeletonUi width={20} height={20} borderRadius={6}/>
+                <SkeletonUi width={140} height={16} borderRadius={6} />
+                <SkeletonUi width={20} height={20} borderRadius={6} />
               </div>
             </div>
           </div>

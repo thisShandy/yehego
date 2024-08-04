@@ -27,38 +27,42 @@ export const useUserEdit = (userId?: string) => {
 
           const loyaltiesData = loylatyResponse.data;
 
-          setRoleConfig(prev => prev.map(item => {
-            const newItem = item;
-            newItem.value = userData.role;
+          setRoleConfig((prev) =>
+            prev.map((item) => {
+              const newItem = item;
+              newItem.value = userData.role;
 
-            return newItem;
-          }));
+              return newItem;
+            })
+          );
 
-          setUserConfig(prev => prev.map(item => {
-            const newItem = item;
-            // @ts-ignore
-            newItem.value = userData[item.name] === null ? "" : userData[item.name].toString();
+          setUserConfig((prev) =>
+            prev.map((item) => {
+              const newItem = item;
+              // @ts-ignore
+              newItem.value = userData[item.name] === null ? "" : userData[item.name].toString();
 
-            if (item.name === "sex" && newItem.value === "other") {
-              newItem.value = "unspecified";
-            }
+              if (item.name === "sex" && newItem.value === "other") {
+                newItem.value = "unspecified";
+              }
 
-            if (item.name === "office_id") {
-              newItem.config = offices.map(el => ({
-                key: el.id.toString(),
-                value: el.name
-              }))
-            }
+              if (item.name === "office_id") {
+                newItem.config = offices.map((el) => ({
+                  key: el.id.toString(),
+                  value: el.name
+                }));
+              }
 
-            if (item.name === "department_id") {
-              newItem.config = departments.map(el => ({
-                key: el.id.toString(),
-                value: el.name
-              }))
-            }
+              if (item.name === "department_id") {
+                newItem.config = departments.map((el) => ({
+                  key: el.id.toString(),
+                  value: el.name
+                }));
+              }
 
-            return newItem;
-          }));
+              return newItem;
+            })
+          );
 
           console.log(loyaltiesData);
           setLoyalties(loyaltiesData);
@@ -83,7 +87,13 @@ export const useUserEdit = (userId?: string) => {
   };
 
   const updateUser = async (userId: string, data: any) => {
-    await api.company.updateUser(userId, data);
+    const newData = {
+      ...data,
+      middle_name: data.not_have_middle_name === "true" ? null : data.middle_name === "" ? null : data.middle_name,
+      not_have_middle_name: data.not_have_middle_name === "true"
+    };
+
+    await api.company.updateUser(userId, newData);
     await getUser(userId);
   };
 

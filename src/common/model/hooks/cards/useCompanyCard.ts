@@ -19,5 +19,5 @@ export const useCompanyCard = () => {
   return {
     loading,
     handleDeleteCard
-  }
+  };
 };

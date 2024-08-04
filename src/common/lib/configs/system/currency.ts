@@ -3,10 +3,10 @@ import type { IDropdownOption } from "~/common/lib/types/form/dropdown-option.ty
 export const currency: IDropdownOption[] = [
   {
     key: "EUR",
-    value: "EUR",
+    value: "EUR"
   },
   {
     key: "SEK",
-    value: "SEK",
-  },
+    value: "SEK"
+  }
 ];

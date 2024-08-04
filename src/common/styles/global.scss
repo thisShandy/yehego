@@ -19,11 +19,17 @@
   // overflow-x: hidden;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   width: 100%;
   height: 100%;
 
   background-color: $background_color;
+
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -31,6 +37,7 @@ body {
   justify-content: center;
 
   max-width: 1440px;
+  width: 100%;
 
   @include xl {
     padding: 0 1rem;

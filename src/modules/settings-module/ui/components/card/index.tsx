@@ -9,39 +9,19 @@ interface ICard {
   handleDelete: (cardId: string) => void;
 }
 
-const Card: FC<ICard> = ({
-  id, number, holder, handleDelete
-}) => {
+const Card: FC<ICard> = ({ id, number, holder, handleDelete }) => {
   return (
     <div className={light.cardContainer}>
       <div className={light.cardNumber}>
-        <span className={light.numberShow}>
-          {number.slice(0, 4)}
-        </span>
-        <span className={light.numberHide}>
-          ****
-        </span>
-        <span className={light.numberHide}>
-          ****
-        </span>
-        <span className={light.numberShow}>
-          {number.slice(12, 16)}
-        </span>
+        <span className={light.numberShow}>{number.slice(0, 4)}</span>
+        <span className={light.numberHide}>****</span>
+        <span className={light.numberHide}>****</span>
+        <span className={light.numberShow}>{number.slice(12, 16)}</span>
       </div>
       <div className={light.cardControl}>
-        <span className={light.controlHolder}>
-          {holder}
-        </span>
-        <button
-          type="button"
-          className={light.controlButton}
-          onClick={() => handleDelete(id)}
-        >
-          <span
-            className={light.buttonTitle}
-          >
-            +
-          </span>
+        <span className={light.controlHolder}>{holder}</span>
+        <button type="button" className={light.controlButton} onClick={() => handleDelete(id)}>
+          <span className={light.buttonTitle}>+</span>
         </button>
       </div>
     </div>

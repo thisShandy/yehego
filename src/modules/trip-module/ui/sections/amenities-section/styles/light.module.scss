@@ -1,0 +1,34 @@
+@import "src/common/styles/index";
+
+.amenitiesContainer {
+  @include flexColumnCenter;
+  gap: 1rem;
+
+  width: 100%;
+  margin-top: 2rem;
+  padding-bottom: 8rem;
+
+  overflow-y: hidden;
+
+  .amenitiesTitle {
+    @include h4;
+    color: #B6B6B6;
+  }
+
+  .amenitiesWay {
+    @include h4($text_color_light);
+    font-size: 1.2em;
+
+    margin-top: 1rem;
+  }
+
+  .amenitiesInfo {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 16px;
+    grid-row-gap: 16px;
+
+    width: 100%;
+  }
+}

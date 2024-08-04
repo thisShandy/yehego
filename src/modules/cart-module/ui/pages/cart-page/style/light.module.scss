@@ -1,0 +1,140 @@
+@import "src/common/styles/index";
+
+.cartHeader {
+  @include flexRowSpace;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  .headerTitle {
+    @include h2;
+  }
+
+  .headerClear {
+    @include flexRowCenter;
+    gap: .5rem;
+
+    width: 156px;
+    height: 48px;
+
+    border-radius: 6px;
+    border: 1px solid $main_color;
+    background-color: $main_color;
+
+    cursor: pointer;
+    @include defaultTransition;
+
+    &:hover {
+      background-color: $main_color_hover;
+    }
+
+    svg {
+      width: 20px;
+      height: 20px;
+
+      stroke: $text_color;
+    }
+
+    .clearTitle {
+      @include p(1.2rem);
+    }
+  }
+}
+
+.cartTrip {
+  @include flexColumnTopLeft;
+  gap: 2rem;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  .tripTitle {
+    @include h3;
+  }
+}
+
+.cartFooter {
+  @include flexColumnTopLeft;
+  gap: .5rem;
+
+  width: 100%;
+  max-width: 360px;
+  margin: 4rem 0;
+
+  .footerTitle {
+    @include h4;
+  }
+
+  .footerControl {
+    @include flexColumnTopLeft;
+    gap: .5rem;
+
+    width: 100%;
+    margin-top: .5rem;
+
+    .footerInput {
+      width: 100%;
+      padding: .75rem 1rem;
+
+      border-radius: 8px;
+      border: 1px solid $border_color_light;
+
+      @include p;
+    }
+  }
+
+  .footerPrice {
+    margin-top: 1.5rem;
+    @include h4;
+  }
+
+  .footerButtons {
+    @include flexRowCenter;
+    gap: 1rem;
+
+    margin-top: .5rem;
+
+    .buttonsAdd {
+      @include flexRowCenter;
+
+      height: 48px;
+      padding: 0 1rem;
+
+      border-radius: 8px;
+      border: 1px solid $main_color;
+
+      cursor: pointer;
+      @include defaultTransition;
+
+      &:hover {
+        background-color: $main_color;
+      }
+
+      .addTitle {
+        @include p;
+      }
+    }
+
+    .buttonsSubmit {
+      @include flexRowCenter;
+
+      height: 48px;
+      padding: 0 2rem;
+
+      border-radius: 8px;
+      border: 1px solid $main_color;
+      background-color: $main_color;
+
+      cursor: pointer;
+      @include defaultTransition;
+
+      &:hover {
+        background-color: $main_color_hover;
+      }
+
+      .submitTitle {
+        @include p;
+      }
+    }
+  }
+}

@@ -3,6 +3,6 @@ import type { IDropdownOption } from "~/common/lib/types/form/dropdown-option.ty
 export const language: IDropdownOption[] = [
   {
     key: "en",
-    value: "English",
+    value: "English"
   }
 ];

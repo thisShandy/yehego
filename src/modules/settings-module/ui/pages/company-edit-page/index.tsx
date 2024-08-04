@@ -10,11 +10,7 @@ import light from "./styles/light.module.scss";
 
 const CompanyEditPage = () => {
   const navigate = useNavigate();
-  const {
-    loading,
-    companyConfig,
-    handleUpdate
-  } = useCompanyEdit();
+  const { loading, companyConfig, handleUpdate } = useCompanyEdit();
 
   if (loading) return null;
 
@@ -22,16 +18,14 @@ const CompanyEditPage = () => {
     <MainLayout header={false}>
       <div className={light.companyWrapper}>
         <div className={`container ${light.companyContainer}`}>
-          <BackUi
-            handleClick={() => navigate("/admin")}
-          />
+          <BackUi handleClick={() => navigate("/admin")} />
         </div>
       </div>
       <FormSection
         formName="Edit company"
         formConfig={companyConfig}
         submitLabel="Update"
-        submit={async (data: any) =>  await handleUpdate(data)}
+        submit={async (data: any) => await handleUpdate(data)}
       />
     </MainLayout>
   );

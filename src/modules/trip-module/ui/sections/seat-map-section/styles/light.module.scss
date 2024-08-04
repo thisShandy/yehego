@@ -1,0 +1,128 @@
+@import "src/common/styles/index";
+
+.seatContainer {
+  @include flexColumnCenter;
+  gap: 1rem;
+
+  width: 100%;
+  margin-top: 2rem;
+
+  .seatTitle {
+    @include h4;
+    color: #B6B6B6;
+  }
+
+  .seatWay {
+    @include h4($text_color_light);
+    font-size: 1.2em;
+  }
+
+  .seatMap {
+    // width: 100%;
+    padding: 2rem;
+
+    border-radius: 12px;
+    border: 1px solid $border_color_light;
+
+    font-size: 2rem;
+
+    .mapExit {
+      display: flex;
+
+      .exitBlock {
+        @include flexRowCenter;
+
+        width: 36px;
+        height: 36px;
+
+        border-radius: 6px;
+        background-color: #d23d36;
+
+        svg {
+          width: 20px;
+          height: 20px;
+
+          stroke: $background_color;
+        }
+      }
+    }
+
+    .rowContainer {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+
+      .seatRow {
+        display: flex;
+        flex-wrap: nowrap;
+      }
+
+      .rowItem {
+        width: 36px;
+        height: 36px;
+        margin: 2.75px;
+
+        border-radius: 6px;
+        border: 1px solid $border_color;
+
+        cursor: pointer;
+        transition: all ease-in-out .15s;
+
+        &:hover {
+          border: 1px solid $main_color;
+        }
+
+        &:disabled {
+          border: none;
+          cursor: not-allowed;
+
+          &:hover {
+            border: none;
+          }
+        }
+
+        &.active {
+          border-color: $main_color;
+        }
+
+        .itemTitle {
+          @include p(1em);
+        }
+      }
+    }
+  }
+
+  .seatContent {
+    @include flexColumnTopLeft;
+    gap: .75rem;
+
+    width: 100%;
+
+    .contentItem {
+      @include flexRowCenter;
+      gap: .5rem;
+
+      &.active {
+        .itemName {
+          border-bottom: 2px solid $main_color;
+        }
+      }
+
+      .itemName {
+        @include h4;
+        font-size: 1.3em;
+
+        border-bottom: 2px solid transparent;
+
+        cursor: pointer;
+        transition: all ease-in-out .15s;
+      }
+
+      .itemSeat {
+        @include p(1.3em);
+      }
+    }
+  }
+}

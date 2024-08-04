@@ -1,0 +1,73 @@
+@import "src/common/styles/index";
+
+.tripContainer {
+  @include flexColumnTopLeft;
+
+  width: 100%;
+  margin-top: 1rem;
+
+  .tripHeader {
+    @include flexColumnTopLeft;
+    gap: .5rem;
+
+    width: 100%;
+
+    .headerTitle {
+      @include h3;
+    }
+
+    .headerDescription {
+      @include p(1.2rem);
+    }
+  }
+
+  .tripWay {
+    @include flexRowSpace;
+
+    width: 100%;
+    margin-top: .75rem;
+
+    .wayItem {
+      @include flexColumnTopLeft;
+
+      .itemTitle {
+        @include p(1.5rem);
+      }
+
+      .itemAirport {
+        @include p;
+      }
+    }
+  }
+
+  .tripJourney {
+    @include flexRowCenter;
+
+    width: 100%;
+    padding: 2rem 5rem 0 5rem;
+
+    .journeyTime {
+      @include h4;
+
+      margin-left: 2rem;
+
+      &:first-child {
+        margin-left: 0;
+        margin-right: 2rem;
+      }
+    }
+
+    .journeyWay {
+      @include flexRowCenter;
+
+      width: 70%;
+      padding: 1rem;
+
+      border-bottom: 1px solid $border_color;
+
+      .wayTitle {
+
+      }
+    }
+  }
+}

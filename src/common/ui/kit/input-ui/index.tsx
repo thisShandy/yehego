@@ -10,6 +10,7 @@ export interface IInputUi extends ITest {
   placeholder?: string;
   value: string;
   error?: null | string;
+  disabled?: boolean;
   handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -21,16 +22,16 @@ const InputUi: FC<PropsWithChildren<IInputUi>> = ({
   placeholder = "",
   value,
   error,
+  disabled,
   handleChange
 }) => {
   return (
-    <div
-      className={`${light.inputContainer} ${error && light.error}`}
-    >
+    <div className={`${light.inputContainer} ${error && light.error} ${disabled && light.disabled}`}>
       <div className={light.inputContent}>
         <span className={light.contentTitle}>{error || name}</span>
         <input
           data-testid={testId}
+          disabled={disabled}
           type={type}
           placeholder={placeholder}
           value={value}

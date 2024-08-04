@@ -44,7 +44,7 @@ export const useSearchType = (clearTripSearch: () => void) => {
   };
 
   const handleDateOpen = () => {
-    setDateOpen(prev => !prev);
+    setDateOpen((prev) => !prev);
   };
 
   return {
@@ -56,6 +56,6 @@ export const useSearchType = (clearTripSearch: () => void) => {
     handleDateOpen,
     accordion,
     accordionClosing,
-    handleAccordion,
+    handleAccordion
   };
 };

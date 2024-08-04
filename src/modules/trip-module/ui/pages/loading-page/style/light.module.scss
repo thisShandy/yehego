@@ -1,0 +1,14 @@
+@import "src/common/styles/index";
+
+.loadingContainer {
+  @include flexColumnCenter;
+
+  width: 100%;
+  height: 90vh;
+
+  .loadingTitle {
+    @include h3;
+
+    width: 340px;
+  }
+}

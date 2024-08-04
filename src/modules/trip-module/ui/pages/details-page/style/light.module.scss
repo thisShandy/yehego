@@ -1,0 +1,86 @@
+@import "src/common/styles/index";
+
+.wayContainer {
+  @include flexColumnTopLeft;
+  gap: 2.5rem;
+
+  width: 100%;
+  margin-top: 4rem;
+
+  .wayHeader {
+    @include flexColumnCenter;
+    width: 100%;
+
+    .headerType {
+      @include h4;
+    }
+
+    .headerCity {
+      @include h2;
+
+      margin-top: .5rem;
+    }
+
+    .headerStart {
+      @include p(1.2em);
+    }
+  }
+}
+
+.wayDivider {
+  width: 100%;
+  height: 1px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  background-color: $border_color_light;
+}
+
+.bottom {
+  margin-bottom: 10rem;
+}
+
+.waySummary {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  background-color: $background_color;
+  border-top: 1px solid $border_color_light;
+
+  .summaryContainer {
+    @include flexRowCenterLeft;
+
+    width: 100%;
+
+    .summary {
+      @include flexColumnTopLeft;
+      gap: .5rem;
+
+      width: 100%;
+
+      .summaryUser {
+        @include flexRowCenterLeft;
+
+        .userTitle {
+          width: 256px;
+
+          @include h4();
+          font-size: 1.25em;
+        }
+
+        .userClasses {
+          @include flexRowCenterLeft;
+          gap: .5rem;
+        }
+      }
+    }
+
+    .summaryContinue {
+      width: 196px;
+    }
+  }
+}

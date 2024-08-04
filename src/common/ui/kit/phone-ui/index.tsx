@@ -16,26 +16,11 @@ export interface IPhoneUi extends ITest {
   handleChange: (phone: string) => void;
 }
 
-const PhoneUi: FC<IPhoneUi> = ({
-  testId = "",
-  name,
-  placeholder = "",
-  value,
-  error,
-  handleChange
-}) => {
+const PhoneUi: FC<IPhoneUi> = ({ testId = "", name, placeholder = "", value, error, handleChange }) => {
   return (
     <div className={`${light.phoneContainer} ${error && light.error}`}>
-      <span className={light.phoneTitle}>
-        {error || name}
-      </span>
-      <PhoneInput
-        data-testid={testId}
-        country={"se"}
-        value={value}
-        placeholder={placeholder}
-        onChange={handleChange}
-      />
+      <span className={light.phoneTitle}>{error || name}</span>
+      <PhoneInput data-testid={testId} country={"se"} value={value} placeholder={placeholder} onChange={handleChange} />
     </div>
   );
 };

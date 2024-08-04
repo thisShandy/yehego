@@ -9,7 +9,7 @@ export const useCreditCard = (submit: (data: any) => Promise<AxiosResponse<any, 
     number: "",
     type: "",
     expiration: "",
-    cardholder: "",
+    cardholder: ""
   });
   const [errors, setErrors] = useState({
     number: null as null | string,
@@ -17,31 +17,30 @@ export const useCreditCard = (submit: (data: any) => Promise<AxiosResponse<any, 
     expiration: null as null | string,
     cardholder: null as null | string,
     name: null as null | string,
-    lastName: null as null | string,
+    lastName: null as null | string
   });
 
   const [globalError, setGlobalError] = useState<null | string>(null);
 
-
   const handleUpdate = (key: string, value: string) => {
-    setErrors(prev => ({
+    setErrors((prev) => ({
       ...prev,
-      [key]: null,
+      [key]: null
     }));
     if (key === "cardholder") {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
         name: null,
-        lastName: null,
+        lastName: null
       }));
-      return setForm(prev => ({
+      return setForm((prev) => ({
         ...prev,
-        [key]: value.toUpperCase(),
+        [key]: value.toUpperCase()
       }));
     }
-    setForm(prev => ({
+    setForm((prev) => ({
       ...prev,
-      [key]: value,
+      [key]: value
     }));
   };
 
@@ -52,7 +51,7 @@ export const useCreditCard = (submit: (data: any) => Promise<AxiosResponse<any, 
         ...form,
         number: form.number.split(" ").join(""),
         name: form.cardholder.split(" ")[0],
-        lastName: form.cardholder.split(" ")?.[1],
+        lastName: form.cardholder.split(" ")?.[1]
       };
       await submit(data);
 
@@ -65,21 +64,21 @@ export const useCreditCard = (submit: (data: any) => Promise<AxiosResponse<any, 
         draggable: true,
         progress: undefined,
         theme: "light",
-        transition: Bounce,
+        transition: Bounce
       });
 
       setForm({
         number: "",
         type: "",
         expiration: "",
-        cardholder: "",
+        cardholder: ""
       });
     } catch (e: any) {
       if (e.response.status === 422) {
-        setErrors(prev => ({
+        setErrors((prev) => ({
           ...prev,
-          ...e.response.data.errors,
-        }))
+          ...e.response.data.errors
+        }));
       }
 
       if (e.response.status === 400) {

@@ -1,0 +1,44 @@
+ul[aria-label=Pagination] {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+
+  width: 100%;
+
+  list-style-type: none;
+}
+
+ul[aria-label=Pagination] li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border-radius: 6px;
+  border: 1px solid #FFD464;
+  background-color: #FFF5E4;
+
+  cursor: pointer;
+  transition: all ease-in-out .15s;
+}
+
+ul[aria-label=Pagination] li:hover {
+  background-color: #FFD464;
+}
+
+ul[aria-label=Pagination] li.selected {
+  background-color: #FFD464;
+}
+
+
+ul[aria-label=Pagination] li.previous {
+  width: 108px;
+  height: 30px;
+}
+
+ul[aria-label=Pagination] li.next {
+  width: 108px;
+  height: 30px;
+}

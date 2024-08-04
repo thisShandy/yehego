@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import queryString from "query-string";
+
 import MainLayout from "~/common/ui/layouts/main-layout";
 import ContainerLayout from "~/common/ui/layouts/container-layout";
 import HotelSingle from "~/modules/hotel-module/ui/components/hotel-single";
@@ -7,37 +11,40 @@ import search from "~icons/search/search.svg";
 import settings from "~icons/control/settings.svg";
 
 const ResultsPage = () => {
+  const location = useLocation();
+  const parsed: {
+    city_name: string;
+    outward_date: string;
+    inward_date: string;
+  } = queryString.parse(location.search);
+
+  useEffect(() => {
+    console.log("searchParams", parsed);
+  }, []);
+
   return (
     <MainLayout>
       <ContainerLayout>
         <div className={light.searchContainer}>
           <div className={light.searchPanel}>
             <div className={light.panelField}>
-              <span className={light.filedName}>
-                City
-              </span>
-              <span className={light.filedValue}>
-                Stockholm
-              </span>
+              <span className={light.filedName}>City</span>
+              <span className={light.filedValue}>{parsed.city_name}</span>
             </div>
             <div className={light.panelField}>
-              <span className={light.filedName}>
-                Checkin
-              </span>
+              <span className={light.filedName}>Checkin</span>
               <span className={light.filedValue}>
-                17.05.2024
+                {`${parsed.outward_date?.split("-")[2]}.${parsed.outward_date?.split("-")[1]}.${parsed.outward_date?.split("-")[0]}`}
               </span>
             </div>
             <div className={`${light.panelField} ${light.last}`}>
-              <span className={light.filedName}>
-                Checkout
-              </span>
+              <span className={light.filedName}>Checkout</span>
               <span className={light.filedValue}>
-                19.05.2024
+                {`${parsed.inward_date?.split("-")[2]}.${parsed.inward_date?.split("-")[1]}.${parsed.inward_date?.split("-")[0]}`}
               </span>
             </div>
             <button type="button" className={light.panelSearch}>
-              <img className={light.searchIcon} src={search} alt="search"/>
+              <img className={light.searchIcon} src={search} alt="search" />
             </button>
           </div>
         </div>
@@ -49,9 +56,7 @@ const ResultsPage = () => {
             </div>
             <button type="button" className={light.headerFilters}>
               <img src={settings} alt="settings" />
-              <span className={light.filtersTitle}>
-                Filters
-              </span>
+              <span className={light.filtersTitle}>Filters</span>
             </button>
           </div>
           <div className={light.resultsContent}>
@@ -63,9 +68,7 @@ const ResultsPage = () => {
               <HotelSingle />
             </div>
             <div className={light.contentMap}>
-              <span>
-                Map will be here
-              </span>
+              <span>Map will be here</span>
             </div>
           </div>
         </div>

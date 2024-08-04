@@ -5,6 +5,7 @@ export interface IUser {
   lastname: string;
   date_of_birth: string;
   sex: string;
+  uuid: string;
   uniq_id: string;
   phone: string;
   email: string;
@@ -16,11 +17,11 @@ export interface IUser {
   office: {
     id: number;
     name: string;
-  },
+  };
   department: {
     id: number;
     name: string;
-  },
+  };
   address: {
     city: null | string;
     country: null | string;

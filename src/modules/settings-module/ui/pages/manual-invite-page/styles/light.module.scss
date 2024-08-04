@@ -1,0 +1,58 @@
+@import "src/common/styles/index";
+
+.pageMargin {
+  margin-top: 2rem;
+}
+
+.pageTitle {
+  @include h3;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+
+  @include sm {
+    font-size: 1.8em;
+  }
+}
+
+.pageDescription {
+  margin-bottom: 3rem;
+
+  @include p(1.1em);
+  color: $text_color_light;
+
+  @include sm {
+    margin-bottom: 2rem;
+
+    font-size: 1em;
+  }
+}
+
+.pageForm {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 32px;
+  grid-row-gap: 24px;
+
+  width: 100%;
+  margin-bottom: 1.5rem;
+
+  @include md {
+    @include flexRowCenter;
+  }
+
+  .formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 24px;
+  }
+}
+
+.pageSubmit {
+  max-width: 256px;
+  width: 100%;
+
+  @include md {
+    max-width: 100%;
+  }
+}

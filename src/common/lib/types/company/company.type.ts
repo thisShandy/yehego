@@ -16,5 +16,5 @@ export interface ICompany {
     postcode: string;
     street: string;
     street2: string;
-  }
+  };
 }

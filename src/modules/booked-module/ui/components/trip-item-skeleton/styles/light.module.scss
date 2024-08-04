@@ -1,0 +1,43 @@
+@import "src/common/styles/index";
+
+.dataSkeleton {
+  @include flexRowCenterLeft;
+
+  width: 100%;
+  padding: 2rem 0;
+
+  border-radius: 12px;
+  border: 1px solid $border_color_light;
+
+  .skeletonInfo {
+    @include flexColumnCenter;
+    gap: 12px;
+
+    width: 100%;
+    max-width: 256px;
+  }
+
+  .skeletonDivider {
+    width: 1px;
+    height: 128px;
+
+    background-color: $border_color_light;
+  }
+
+  .skeletonContent {
+    @include flexColumnTopLeft;
+    gap: 24px;
+
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+
+    .contentInfo {
+      @include flexRowSpace;
+      align-items: flex-end;
+      gap: 24px;
+
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@import "src/common/styles/index";
+
+.inviteContainer {
+  @include flexColumnTopLeft;
+
+  width: 100%;
+  margin-top: 5rem;
+
+  .inviteTitle {
+    @include h2;
+    font-size: 2.5rem;
+  }
+
+  .inviteDescription {
+    margin-top: .5rem;
+    @include p(1.2rem);
+  }
+}

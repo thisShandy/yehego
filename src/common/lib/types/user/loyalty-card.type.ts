@@ -6,6 +6,6 @@ export interface ILoyaltyCard {
     loyalty: {
       name: string;
       airline_name: string;
-    }
-  }
+    };
+  };
 }

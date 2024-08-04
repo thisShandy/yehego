@@ -1,0 +1,92 @@
+@import "src/common/styles/index";
+
+.summarySelected {
+  @include flexColumnTopLeft;
+
+  width: 100%;
+  padding: 1rem 0;
+
+  border-bottom: 1px solid $border_color_light;
+
+  .selectedHeader {
+    @include flexRowSpace;
+    align-items: flex-start;
+
+    width: 100%;
+    margin-bottom: 1rem;
+
+    .headerWay {
+      @include h5;
+    }
+
+    .headerClose {
+      transform: rotate(45deg);
+
+      cursor: pointer;
+
+      .closeTitle {
+        @include p(1.2em);
+      }
+    }
+  }
+
+  .selectedDirection {
+    @include h5;
+    font-size: 1.25em;
+    margin-bottom: .3rem;
+  }
+
+  .selectedEmission {
+    @include p;
+    opacity: .5;
+    margin-bottom: .75rem;
+  }
+
+  .selectedDate {
+    @include flexRowSpace;
+
+    width: 100%;
+    margin-bottom: .3rem;
+
+    .dateData {
+      @include p;
+    }
+
+    .dateTime {
+      @include p;
+    }
+  }
+
+  .selectedFlight {
+    @include flexRowSpace;
+
+    width: 100%;
+    margin-bottom: .3rem;
+
+    .flightTitle {
+      @include p;
+    }
+
+    .flightTime {
+      @include p;
+    }
+  }
+
+  .selectedPrice {
+    @include flexRowSpace;
+    align-items: center;
+
+    width: 100%;
+    margin-top: .3rem;
+    margin-bottom: .3rem;
+
+    .priceTitle {
+      @include p;
+    }
+
+    .priceAmount {
+      @include h5;
+      font-size: 1.2em;
+    }
+  }
+}

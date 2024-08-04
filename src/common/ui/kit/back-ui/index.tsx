@@ -7,23 +7,11 @@ interface IBackUi {
   handleClick: () => void;
 }
 
-const BackUi: FC<IBackUi> = ({
-  handleClick
-}) => {
+const BackUi: FC<IBackUi> = ({ handleClick }) => {
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className={light.backContainer}
-    >
-      <img
-        className={light.backImage}
-        src={arrow_dropdown}
-        alt="arrow_dropdown"
-      />
-      <span className={light.backTitle}>
-        Back
-      </span>
+    <button type="button" onClick={handleClick} className={light.backContainer}>
+      <img className={light.backImage} src={arrow_dropdown} alt="arrow_dropdown" />
+      <span className={light.backTitle}>Back</span>
     </button>
   );
 };

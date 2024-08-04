@@ -2,18 +2,26 @@
 
 .searchDate {
   @include flexRowCenterLeft;
-  gap: 32px;
 
   position: relative;
+
+  @include md {
+    flex-direction: column;
+  }
 
   .searchDivider {
     width: 1px;
     height: 42px;
+    margin-right: 32px;
 
     background-color: $border_color;
 
     @include fadeIn;
     animation-delay: .35s;
+
+    @include md {
+      display: none;
+    }
   }
 
   .searchCalendar {

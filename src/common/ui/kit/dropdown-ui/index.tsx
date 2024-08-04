@@ -18,47 +18,24 @@ interface IDropdownUi extends ITest {
   handleChange: (value: string) => void;
 }
 
-const DropdownUi: FC<IDropdownUi> = ({
-  name, value, error, placeholder = "", config, handleChange
-}) => {
+const DropdownUi: FC<IDropdownUi> = ({ name, value, error, placeholder = "", config, handleChange }) => {
   const [active, setActive] = useState<boolean>(false);
 
   const handleActive = () => {
-    setActive(prev => !prev);
+    setActive((prev) => !prev);
   };
 
   return (
     <div className={light.dropdownWrapper}>
-      <button
-        type="button"
-        className={`${light.dropdownContainer} ${error && light.error}`}
-        onClick={handleActive}
-      >
-        <span className={light.dropdownTitle}>
-          {error || name}
-        </span>
-        {value !== "" && (
-          <span className={light.dropdownValue}>
-            {config.find(el => el.key === value)!.value}
-          </span>
-        )}
-        {value === "" && (
-          <span className={`${light.dropdownValue} ${light.placeholder}`}>
-            {placeholder}
-          </span>
-        )}
-        <img
-          className={`${light.dropdownArrow} ${active && light.active}`}
-          src={arrow_down}
-          alt="arrow_down"
-        />
+      <button type="button" className={`${light.dropdownContainer} ${error && light.error}`} onClick={handleActive}>
+        <span className={light.dropdownTitle}>{error || name}</span>
+        {value !== "" && <span className={light.dropdownValue}>{config.find((el) => el.key === value)!.value}</span>}
+        {value === "" && <span className={`${light.dropdownValue} ${light.placeholder}`}>{placeholder}</span>}
+        <img className={`${light.dropdownArrow} ${active && light.active}`} src={arrow_down} alt="arrow_down" />
       </button>
-      <OutsideLayout
-        active={active}
-        setActive={handleActive}
-      >
+      <OutsideLayout active={active} setActive={handleActive}>
         <div className={light.dropdownContent}>
-          {config.map(item => (
+          {config.map((item) => (
             <button
               key={item.key}
               type="button"
@@ -68,9 +45,7 @@ const DropdownUi: FC<IDropdownUi> = ({
                 handleActive();
               }}
             >
-              <span className={light.itemTitle}>
-                {item.value}
-              </span>
+              <span className={light.itemTitle}>{item.value}</span>
             </button>
           ))}
         </div>

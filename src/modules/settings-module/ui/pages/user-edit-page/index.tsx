@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 import { useUserEdit } from "~/modules/settings-module/model/hooks/useUserEdit.ts";
 
@@ -12,16 +12,9 @@ import light from "./styles/light.module.scss";
 
 const UserEditPage = () => {
   const { userId } = useParams();
+  const navigate = useNavigate();
 
-  const {
-    loading,
-    user,
-    loyalties,
-    roleConfig,
-    userConfig,
-    updateRole,
-    updateUser
-  } = useUserEdit(userId);
+  const { loading, user, loyalties, roleConfig, userConfig, updateRole, updateUser } = useUserEdit(userId);
 
   if (loading || !userId) {
     return null;
@@ -31,16 +24,10 @@ const UserEditPage = () => {
     <MainLayout header={false}>
       <div className={light.userWrapper}>
         <div className={`container ${light.userContainer}`}>
-          <BackUi
-            handleClick={() => window.location = "https://app-staging.yehego.com/admin" as unknown as Location}
-          />
+          <BackUi handleClick={() => navigate("/admin/users")} />
           <div className={light.userInfo}>
-            <span className={light.userInfo}>
-              {`${user?.firstname} ${user?.lastname}`}
-            </span>
-            <span className={light.userEmail}>
-              {user?.email}
-            </span>
+            <span className={light.userInfo}>{`${user?.firstname} ${user?.lastname}`}</span>
+            <span className={light.userEmail}>{user?.email}</span>
           </div>
         </div>
       </div>
@@ -56,12 +43,10 @@ const UserEditPage = () => {
         submitLabel="Update"
         submit={(data: any) => updateUser(userId, { ...data, role: user?.role })}
       />
-      <ListLayout
-        title="Loyalty programs"
-        handleAdd={() => console.log("")}
-      >
-        {loyalties.map(loyalty => (
+      <ListLayout title="Loyalty programs" handleAdd={() => console.log("")}>
+        {loyalties.map((loyalty) => (
           <Loyalty
+            key={loyalty.id}
             title={loyalty.attributes.loyalty.name}
             description={loyalty.attributes.loyalty.airline_name}
             number={loyalty.attributes.number}

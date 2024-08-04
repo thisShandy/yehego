@@ -8,15 +8,9 @@ interface IDateSelect {
   handleSelect: () => void;
 }
 
-const DateSelect: FC<IDateSelect> = ({
-  label, selected, handleSelect
-}) => {
+const DateSelect: FC<IDateSelect> = ({ label, selected, handleSelect }) => {
   return (
-    <button
-      type="button"
-      className={light.dateContainer}
-      onClick={handleSelect}
-    >
+    <button type="button" className={light.dateContainer} onClick={handleSelect}>
       <span className={light.dateLabel}>{label}</span>
       {selected && <span className={light.dateSelected}>{selected}</span>}
       {!selected && <span className={light.datePlaceholder}>Select date</span>}
