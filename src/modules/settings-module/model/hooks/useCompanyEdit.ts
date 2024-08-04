@@ -21,8 +21,8 @@ export const useCompanyEdit = () => {
               const newItem = item;
 
               if (item.group === "Address") {
-                // @ts-ignore
                 newItem.value =
+                  // @ts-ignore
                   user.company.address[item.name] === null ? "" : user.company.address[item.name].toString();
               } else {
                 // @ts-ignore

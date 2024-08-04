@@ -8,7 +8,7 @@ import { userState } from "~/common/model/recoil/user.ts";
 
 import { providersList } from "~/modules/settings-module/lib/configs/providers-list.ts";
 
-export const useProvider = (get: boolean) => {
+export const useProvider = (get?: boolean) => {
   const user = useRecoilValue(userState);
   const [loading, setLoading] = useState<boolean>(false);
   const [removeLoading, setRemoveLoading] = useState<boolean>(false);

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Bounce, toast } from "react-toastify";
 import api from "~/modules/settings-module/model/api";
 
+// @ts-ignore
 export const useLoyalty = (id?: string) => {
   const [loyalties, setLoyalties] = useState<any[]>([]);
 

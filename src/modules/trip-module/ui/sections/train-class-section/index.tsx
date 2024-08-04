@@ -1,5 +1,4 @@
 import type { FC } from "react";
-import { useEffect } from "react";
 import type { ITrainClass } from "~/modules/trip-module/lib/types/train-class.type.ts";
 
 import { useRecoilValue } from "recoil";

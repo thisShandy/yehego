@@ -6,7 +6,7 @@ import FormSection from "~/common/ui/sections/form-section";
 import light from "./styles/light.module.scss";
 
 const InvitePage = () => {
-  const { loading, form, handleSubmit } = useInvite();
+  const { form, handleSubmit } = useInvite();
 
   return (
     <ContainerLayout>

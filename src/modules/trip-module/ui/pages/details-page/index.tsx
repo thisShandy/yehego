@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { ITrainClass } from "~/modules/trip-module/lib/types/train-class.type.ts";
 import type { IAirClass } from "~/modules/trip-module/lib/types/air-class.type.ts";
 

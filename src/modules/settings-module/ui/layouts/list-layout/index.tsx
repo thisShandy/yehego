@@ -5,8 +5,8 @@ import light from "./styles/light.module.scss";
 interface IListLayout {
   title: string;
   handleAdd: () => void;
-  empty: boolean;
-  emptyTitle: string;
+  empty?: boolean;
+  emptyTitle?: string;
 }
 
 const ListLayout: FC<PropsWithChildren<IListLayout>> = ({ children, title, handleAdd, empty, emptyTitle }) => {

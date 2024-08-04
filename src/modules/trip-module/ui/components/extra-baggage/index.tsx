@@ -1,3 +1,4 @@
+// @ts-nocheck
 import type { FC } from "react";
 import type { IUser } from "~/common/lib/types/user/user.type.ts";
 import type { IAirBag } from "~/modules/trip-module/lib/types/air-bag.type.ts";

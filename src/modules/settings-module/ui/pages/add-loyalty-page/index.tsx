@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 
 import { useLoyalty } from "~/modules/settings-module/model/hooks/useLoyalty.ts";
 
-import { providersList } from "~/modules/settings-module/lib/configs/providers-list.ts";
+// import { providersList } from "~/modules/settings-module/lib/configs/providers-list.ts";
 import { userState } from "~/common/model/recoil/user.ts";
 
 import BackUi from "~/common/ui/kit/back-ui";

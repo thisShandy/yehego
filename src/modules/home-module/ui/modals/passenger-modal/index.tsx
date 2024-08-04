@@ -37,7 +37,7 @@ const PassengerModal: FC<IPassengerModal> = ({
   handleActive,
   passengers,
   loading,
-  error,
+  // error,
   passengersValue,
   passengersResults,
   handleUpdate,

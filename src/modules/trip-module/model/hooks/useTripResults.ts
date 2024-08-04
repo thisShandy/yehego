@@ -53,6 +53,7 @@ export const useTripResults = (
 
   return {
     data,
-    loading
+    loading,
+    setMeta
   };
 };

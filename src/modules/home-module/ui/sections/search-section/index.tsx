@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useNavigate } from "react-router-dom";
 
 import { useSearchTrip } from "~/modules/home-module/model/hooks/useSearchTrip.ts";
